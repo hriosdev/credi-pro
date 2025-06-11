@@ -313,37 +313,143 @@ header.navigation-menu {
   }
 }
 
+/* Estilos para móviles pequeños */
 /* Extra small phones (360px - 414px) */
 @media (max-width: 25.875rem) {
-  /* Estilos para móviles pequeños */
+  main {
+    width: 100vw;
+    & section {
+      width: inherit;
+      padding: 1rem 0;
+      & > div:first-child {
+        max-width: calc(100vw - 2rem);
+        margin: 1rem auto;
+      }
+    }
+  }
 }
 
-/* Small to medium phones */
+/* Estilos para móviles medianos */
+/* Small to medium phones (415px - 599px)*/
 @media (min-width: 25.9375rem) and (max-width: 37.4375rem) {
-  /* Estilos para móviles medianos */
+  main {
+    width: 100vw;
+    & section {
+      width: inherit;
+      padding: 2rem 0;
+      & > div:first-child {
+        max-width: calc(100vw - 2rem);
+        margin: 1rem auto;
+        & > div {
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+      & h2 {
+        font-size: 1.5rem !important;
+        text-align: center;
+      }
+      & img, & a {
+        margin: 0 auto;
+      }
+      & p {
+        font-size: 1rem;
+        line-height: 1.3;
+        text-align: center;
+      }
+    }
+  }
 }
 
-/* Tablets verticales y phablets grandes */
+/* Estilos para tablets verticales */
+/* Tablets verticales y phablets grandes (600px - 899px)*/
 @media (min-width: 37.5rem) and (max-width: 56.1875rem) {
-  /* Estilos para tablets verticales */
+  main {
+    width: 100vw;
+    & section {
+      width: inherit;
+      padding: 1.75rem 0;
+      & > div:first-child {
+        max-width: calc(100vw - 4rem);
+        margin: 1.75rem auto;
+      }
+       & h2 {
+        font-size: 1.5rem !important;
+        text-align: center;
+      }
+      & img, & a {
+        margin: 0 auto;
+      }
+      & p {
+        font-size: 1rem;
+        line-height: 1.3;
+        text-align: center;
+      }
+    }
+  }
 }
 
-/* Tablets horizontales y pantallas pequeñas */
+/* Estilos para tablets en horizontal o laptops pequeñas */
+/* Tablets horizontales y pantallas pequeñas (900px - 1199px)*/
 @media (min-width: 56.25rem) and (max-width: 74.9375rem) {
-  /* Estilos para tablets en horizontal o laptops pequeñas */
+  main {
+    width: 100vw;
+    & section {
+      width: inherit;
+      padding: 1.75rem 0;
+      & > div:first-child {
+        max-width: 56.25rem;
+        margin: 1.75rem auto;
+      }
+    }
+  }
 }
 
-/* Laptops comunes */
+/* Estilos para laptops comunes */
+/* Laptops comunes (1200px - 1439px)*/
 @media (min-width: 75rem) and (max-width: 89.9375rem) {
-  /* Estilos para laptops comunes */
+  main {
+    width: 100vw;
+    & section {
+      width: inherit;
+      padding: 2rem 0;
+      & > div:first-child {
+        max-width: 67.5rem;
+        margin: 2rem auto;
+      }
+    }
+  }
 }
 
-/* Pantallas Full HD */
+/* Estilos para pantallas grandes */
+/* Pantallas Full HD (1440px - 1919px)*/
 @media (min-width: 90rem) and (max-width: 119.9375rem) {
-  /* Estilos para pantallas grandes */
+  main {
+    width: 100vw;
+    & section {
+      width: inherit;
+      padding: 2rem 0;
+      & > div:first-child {
+        max-width: 67.5rem;
+        margin: 2rem auto;
+      }
+    }
+  }
 }
 
-/* Ultra-wide screens */
+/* Estilos para pantallas muy grandes */
+/* Ultra-wide screens (1920px - MAX)*/
 @media (min-width: 120rem) {
-  /* Estilos para pantallas muy grandes */
+  main {
+    width: 100vw;
+    & section {
+      width: inherit;
+      padding: 2rem 0;
+      & > div:first-child {
+        max-width: 67.5rem;
+        margin: 2rem auto;
+      }
+    }
+  }
 }
