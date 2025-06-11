@@ -1,0 +1,349 @@
+:root {
+  --primary: #004aad;
+  --secondary: #f4f4f4;
+  --accent: #ffc107;
+  --dark: #333;
+  --header-height: 4rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* outline: 1px solid rgba(189, 0, 0, 0.486); */
+}
+
+/* FONTS */
+@font-face {
+  font-family: "montserrat-extrabold";
+  src: url("../assets/fonts/Montserrat-ExtraBold.ttf");
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: "montserrat-bold";
+  src: url("../assets/fonts/Montserrat-Bold.ttf");
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "montserrat-semibold";
+  src: url("../assets/fonts/Montserrat-SemiBold.ttf");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "montserrat-medium";
+  src: url("../assets/fonts/Montserrat-Medium.ttf");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "montserrat";
+  src: url("../assets/fonts/Montserrat-Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "montserrat-light";
+  src: url("../assets/fonts/Montserrat-Light.ttf");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "montserrat-extralight";
+  src: url("../assets/fonts/Montserrat-ExtraLight.ttf");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "montserrat-thin";
+  src: url("../assets/fonts/Montserrat-Thin.ttf");
+  font-weight: 100;
+}
+
+/* HTML Defaults */
+
+html,
+body {
+  overflow-x: hidden;
+  background-color: var(--secondary);
+  font-family: "montserrat", sans-serif;
+  color: var(--dark);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+input,
+form,
+button select {
+  display: block;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="tel"],
+select {
+  min-height: 2.5rem;
+  display: block;
+  border: 1px solid #33333365;
+  border-radius: 2px;
+  font-size: 1rem;
+  font-family: "montserrat", sans-serif;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+a[role="link"] {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 0;
+    left: 1.25rem;
+    bottom: 0.75rem;
+    transition: all 150ms linear;
+  }
+
+  &:hover::before {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: calc(100% - 2.5rem);
+    background-color: rgb(51, 51, 51);
+    left: 1.25rem;
+    bottom: 0.75rem;
+    transition: all 150ms linear;
+  }
+}
+
+textarea {
+  resize: none;
+  display: block;
+  border: 1px solid #33333365;
+  font-size: 1rem;
+  font-family: "montserrat", sans-serif;
+  padding: 1rem !important;
+}
+
+input[type="range"] {
+  accent-color: var(--primary);
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 1.25rem;
+}
+
+/* UI */
+
+.col-12 {
+  width: 100%;
+  max-width: 100%;
+}
+.col-11 {
+  width: 100%;
+  max-width: 91.6666%;
+}
+.col-10 {
+  width: 100%;
+  max-width: 83.3336%;
+}
+.col-9 {
+  width: 100%;
+  max-width: 75%;
+}
+.col-8 {
+  width: 100%;
+  max-width: 66.6666%;
+}
+.col-7 {
+  width: 100%;
+  max-width: 58.3333%;
+}
+.col-6 {
+  width: 100%;
+  max-width: 50%;
+}
+.col-5 {
+  width: 100%;
+  max-width: 41.6666%;
+}
+.col-4 {
+  width: 100%;
+  max-width: 33.3333%;
+}
+.col-3 {
+  width: 100%;
+  max-width: 25%;
+}
+.col-2 {
+  width: 100%;
+  max-width: 16.6666%;
+}
+.col-1 {
+  width: 100%;
+  max-width: 8.3333%;
+}
+
+.container {
+  width: 100vw;
+
+  & .section-spaced {
+    padding: 2rem 0;
+  }
+}
+.hero {
+  height: calc(100vh - var(--header-height)) !important;
+  min-height: calc(100vh - var(--header-height)) !important;
+  max-height: calc(100vh - var(--header-height)) !important;
+}
+
+#calculator-form button[type="submit"],
+#calculator-form input#results {
+  border-radius: 2rem;
+  background-color: #4e72e6;
+  border: 3px solid rgb(5, 5, 161);
+  font-family: "montserrat-semibold";
+  & span {
+    font-size: 1rem;
+  }
+}
+/* END UI*/
+
+header.navigation-menu {
+  background-color: var(--primary);
+  color: white;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+
+  & nav ul {
+    height: var(--header-height);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    & li {
+      margin: 0 1rem;
+
+      & a {
+        font-size: 1.25rem;
+        font-weight: 500;
+        color: white;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+.blog-container-hero {
+  & article > div:first-child {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  & article:nth-child(1) > div:first-child {
+    background-image: url("../assets/images/economic-one.jpg");
+  }
+
+  & article:nth-child(2) > div:first-child {
+    background-image: url("../assets/images/world-economy.jpg");
+  }
+
+  & article:nth-child(3) > div:first-child {
+    background-image: url("../assets/images/economic-two.webp");
+  }
+}
+
+.button {
+  background-color: var(--accent);
+  color: #000;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.blog-post {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+  & .button {
+    align-self: flex-start;
+    text-decoration: none;
+  }
+}
+
+.max-w-360px {
+  width: 100%;
+  max-width: 360px;
+  overflow: hidden;
+  border-radius: 1rem;
+
+  & img {
+    object-fit: cover;
+    aspect-ratio: 1;
+    height: 360px;
+  }
+}
+
+/* Extra small phones (360px - 414px) */
+@media (max-width: 25.875rem) {
+  /* Estilos para móviles pequeños */
+}
+
+/* Small to medium phones */
+@media (min-width: 25.9375rem) and (max-width: 37.4375rem) {
+  /* Estilos para móviles medianos */
+}
+
+/* Tablets verticales y phablets grandes */
+@media (min-width: 37.5rem) and (max-width: 56.1875rem) {
+  /* Estilos para tablets verticales */
+}
+
+/* Tablets horizontales y pantallas pequeñas */
+@media (min-width: 56.25rem) and (max-width: 74.9375rem) {
+  /* Estilos para tablets en horizontal o laptops pequeñas */
+}
+
+/* Laptops comunes */
+@media (min-width: 75rem) and (max-width: 89.9375rem) {
+  /* Estilos para laptops comunes */
+}
+
+/* Pantallas Full HD */
+@media (min-width: 90rem) and (max-width: 119.9375rem) {
+  /* Estilos para pantallas grandes */
+}
+
+/* Ultra-wide screens */
+@media (min-width: 120rem) {
+  /* Estilos para pantallas muy grandes */
+}
