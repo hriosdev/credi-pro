@@ -101,205 +101,165 @@
   <body>
     <div id="content">
       <!-- Navigation menu  -->
-      <header x-data="{ open: false }" class="fixed top-0 left-0 w-full z-50 bg-white/70 backdrop-blur-md shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="flex justify-between items-center h-16">
-            <!-- Logo -->
-            <a href="#" class="flex-shrink-0">
-              <img class="h-10" src="/src/assets/images/logoblue.png" alt="Logo" />
-            </a>
+    <!-- Navigation menu  -->
+    <header x-data="{ open: false }" class="fixed top-0 left-0 w-full z-50 bg-white/70 backdrop-blur-md shadow-sm">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
 
-            <!-- Botón hamburguesa -->
-            <div class="flex md:hidden">
-              <button
-                @click="open = !open"
-                type="button"
-                class="inline-flex items-center justify-center p-2 rounded-md text-slate-800 hover:bg-blue-100 focus:outline-none transition duration-300"
-                aria-controls="mobile-menu"
-                :aria-expanded="open"
-              >
-                <svg
-                  class="h-6 w-6"
-                  x-show="!open"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-                <svg
-                  class="h-6 w-6"
-                  x-show="open"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
+          <!-- Logo -->
+          <a href="#" class="flex-shrink-0">
+            <img class="h-10" src="/src/assets/images/logoblue.png" alt="Logo" />
+          </a>
 
-            <!-- Menú escritorio con efecto -->
-            <nav class="hidden md:flex space-x-6 items-center">
-              <a
-                href="/index.html"
-                class="relative group text-sm font-[montserrat-semibold] text-slate-800 hover:text-blue-700 transition"
-              >
-                Inicio
-                <span
-                  class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"
-                ></span>
-              </a>
-              <a
-                href="/nosotros"
-                class="relative group text-sm font-[montserrat-medium] text-slate-800 hover:text-blue-700 transition"
-              >
-                ¿Quiénes Somos?
-                <span
-                  class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"
-                ></span>
-              </a>
-              <a
-                href="/simulador"
-                class="relative group text-sm font-[montserrat-medium] text-slate-800 hover:text-blue-700 transition"
-              >
-                Solicita tu Crédito
-                <span
-                  class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"
-                ></span>
-              </a>
-              <a
-                href="/blog"
-                class="relative group text-sm font-[montserrat-medium] text-slate-800 hover:text-blue-700 transition"
-              >
-                Blog
-                <span
-                  class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"
-                ></span>
-              </a>
-              <a
-                href="/contacto"
-                class="relative group text-sm font-[montserrat-medium] text-slate-800 hover:text-blue-700 transition"
-              >
-                Contacto
-                <span
-                  class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"
-                ></span>
-              </a>
-            </nav>
+          <!-- Botón hamburguesa -->
+          <div class="flex md:hidden">
+            <button @click="open = !open" type="button"
+              class="inline-flex items-center justify-center p-2 rounded-md text-slate-800 hover:bg-blue-100 focus:outline-none transition duration-300"
+              aria-controls="mobile-menu" :aria-expanded="open">
+              <svg class="h-6 w-6" x-show="!open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+              <svg class="h-6 w-6" x-show="open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
           </div>
-        </div>
 
-        <!-- Menú móvil (slide down con mismo estilo visual) -->
-        <div
-          x-show="open"
-          x-transition:enter="transition ease-out duration-300"
-          x-transition:enter-start="transform opacity-0 -translate-y-4"
-          x-transition:enter-end="transform opacity-100 translate-y-0"
-          x-transition:leave="transition ease-in duration-200"
-          x-transition:leave-start="transform opacity-100 translate-y-0"
-          x-transition:leave-end="transform opacity-0 -translate-y-4"
-          class="md:hidden bg-white/95 backdrop-blur-md shadow-md px-4 pt-4 pb-6 space-y-3"
-        >
-          <!-- Mismo estilo de efecto en móvil -->
-          <a href="#" class="relative group block text-sm font-medium text-slate-800 hover:text-blue-700 transition">
-            Inicio
-            <span class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-          </a>
-          <a href="./nosotros" class="relative group block text-sm font-medium text-slate-800 hover:text-blue-700 transition">
-            ¿Quiénes Somos?
-            <span class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-          </a>
-          <a href="./simulador" class="relative group block text-sm font-medium text-slate-800 hover:text-blue-700 transition">
-            Solicita tu Crédito
-            <span class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-          </a>
-          <a href="./blog" class="relative group block text-sm font-medium text-slate-800 hover:text-blue-700 transition">
-            Blog
-            <span class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-          </a>
-          <a href="./contacto" class="relative group block text-sm font-medium text-slate-800 hover:text-blue-700 transition">
-            Contacto
-            <span class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-          </a>
+          <!-- Menú escritorio con efecto -->
+          <nav class="hidden md:flex space-x-6 items-center">
+            <a href="/index.html"
+              class="relative group text-sm font-[montserrat-semibold] text-slate-800 hover:text-blue-700 transition">
+              Inicio
+              <span
+                class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="/nosotros"
+              class="relative group text-sm font-[montserrat-medium] text-slate-800 hover:text-blue-700 transition">
+              ¿Quiénes Somos?
+              <span
+                class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="/simulador"
+              class="relative group text-sm font-[montserrat-medium] text-slate-800 hover:text-blue-700 transition">
+              Solicita tu Crédito
+              <span
+                class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="/blog"
+              class="relative group text-sm font-[montserrat-medium] text-slate-800 hover:text-blue-700 transition">
+              Blog
+              <span
+                class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="/contacto"
+              class="relative group text-sm font-[montserrat-medium] text-slate-800 hover:text-blue-700 transition">
+              Contacto
+              <span
+                class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+          </nav>
         </div>
-      </header>
+      </div>
+
+      <!-- Menú móvil (slide down con mismo estilo visual) -->
+      <div x-show="open" x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="transform opacity-0 -translate-y-4"
+        x-transition:enter-end="transform opacity-100 translate-y-0"
+        x-transition:leave="transition ease-in duration-200"
+        x-transition:leave-start="transform opacity-100 translate-y-0"
+        x-transition:leave-end="transform opacity-0 -translate-y-4"
+        class="md:hidden bg-white/95 backdrop-blur-md shadow-md px-4 pt-4 pb-6 space-y-3">
+
+        <!-- Mismo estilo de efecto en móvil -->
+        <a href="#" class="relative group block text-sm font-medium text-slate-800 hover:text-blue-700 transition">
+          Inicio
+          <span
+            class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="./nosotros"
+          class="relative group block text-sm font-medium text-slate-800 hover:text-blue-700 transition">
+          ¿Quiénes Somos?
+          <span
+            class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="./simulador"
+          class="relative group block text-sm font-medium text-slate-800 hover:text-blue-700 transition">
+          Solicita tu Crédito
+          <span
+            class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="./blog" class="relative group block text-sm font-medium text-slate-800 hover:text-blue-700 transition">
+          Blog
+          <span
+            class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="./contacto"
+          class="relative group block text-sm font-medium text-slate-800 hover:text-blue-700 transition">
+          Contacto
+          <span
+            class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+        </a>
+      </div>
+    </header>
 
       <main>
+
+
         <!--Contacto-->
-        <section
-          id="contacto"
-          class="relative w-screen bg-gradient-to-br from-[#F2F6FC] via-white to-[#EAF2F8] py-24 px-6 overflow-hidden"
-        >
-          <!-- Decoración animada -->
-          <div class="absolute top-10 left-10 w-24 h-24 bg-blue-300/20 rounded-full blur-3xl animate-ping"></div>
-          <div class="absolute bottom-0 right-20 w-32 h-32 bg-teal-400/10 rounded-full blur-2xl animate-pulse"></div>
+        
+      <!-- Contacto Mejorado con fondo y estilo coherente -->
+      <section id="contacto" class="relative w-full bg-[#EAF2F8] py-24 px-6 overflow-hidden">
+        <!-- Decoraciones suaves -->
+        <div
+          class="absolute top-10 left-10 w-24 h-24 bg-[#007BFF]/20 rounded-full blur-3xl animate-ping pointer-events-none">
+        </div>
+        <div
+          class="absolute bottom-10 right-10 w-32 h-32 bg-[#00B7C2]/20 rounded-full blur-2xl animate-pulse pointer-events-none">
+        </div>
 
-          <div class="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-16 relative z-10">
-            <!-- Formulario -->
-            <div class="w-full lg:w-1/2 bg-white p-8 rounded-xl shadow-lg" data-aos="fade-right">
-              <h2 class="text-3xl md:text-4xl font-bold text-blue-700 mb-6 text-center">Contáctanos</h2>
-              <form class="space-y-6">
-                <div>
-                  <label for="fullname" class="block text-sm font-medium text-slate-700 mb-1">Nombre completo</label>
-                  <input
-                    type="text"
-                    id="fullname"
-                    name="fullname"
-                    required
-                    placeholder="Escribe tu nombre"
-                    class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-                  />
-                </div>
+        <div class="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-12 relative z-10">
+          <!-- Formulario -->
+          <div class="w-full lg:w-1/2 bg-white p-10 rounded-2xl shadow-xl" data-aos="fade-right">
+            <h2 class="text-4xl md:text-5xl font-bold text-[#003B73] mb-8 text-center">
+              📬 Contáctanos
+            </h2>
+            <form class="space-y-6">
+              <div>
+                <label for="fullname" class="block text-sm font-semibold text-slate-700 mb-1">Nombre completo</label>
+                <input type="text" id="fullname" name="fullname" placeholder="Escribe tu nombre"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#007BFF] transition shadow-sm hover:shadow-md" />
+              </div>
 
-                <div>
-                  <label for="email" class="block text-sm font-medium text-slate-700 mb-1">Correo electrónico</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    placeholder="ejemplo@correo.com"
-                    class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-                  />
-                </div>
+              <div>
+                <label for="email" class="block text-sm font-semibold text-slate-700 mb-1">Correo electrónico</label>
+                <input type="email" id="email" name="email" placeholder="ejemplo@correo.com"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#007BFF] transition shadow-sm hover:shadow-md" />
+              </div>
 
-                <div>
-                  <label for="message" class="block text-sm font-medium text-slate-700 mb-1">Tu mensaje</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows="6"
-                    required
-                    placeholder="¿En qué podemos ayudarte?"
-                    class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-                  ></textarea>
-                </div>
+              <div>
+                <label for="message" class="block text-sm font-semibold text-slate-700 mb-1">Mensaje</label>
+                <textarea id="message" name="message" rows="5" placeholder="¿En qué podemos ayudarte?"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#007BFF] transition shadow-sm hover:shadow-md"></textarea>
+              </div>
 
-                <div class="text-right">
-                  <button
-                    type="submit"
-                    class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-md shadow-md transition"
-                  >
-                    Enviar mensaje
-                  </button>
-                </div>
-              </form>
-            </div>
-
-            <!-- Imagen ilustrativa -->
-            <div class="w-full lg:w-1/2 flex justify-center" data-aos="fade-left">
-              <img
-                src="https://img.freepik.com/free-psd/portrait-middle-aged-woman_23-2151825943.jpg"
-                alt="contacto"
-                class="w-[420px] rounded-xl object-cover shadow-xl"
-                style="mix-blend-mode: multiply"
-              />
-            </div>
+              <div class="text-center">
+                <button type="submit"
+                  class="inline-block bg-[#007BFF] hover:bg-[#005bb5] text-white font-semibold px-8 py-3 rounded-lg shadow-md transition-transform duration-300 hover:scale-105">
+                  Enviar mensaje
+                </button>
+              </div>
+            </form>
           </div>
-        </section>
+
+          <!-- Imagen -->
+          <div class="w-full lg:w-1/2 flex justify-center" data-aos="fade-left">
+            <img src="https://img.freepik.com/free-psd/portrait-middle-aged-woman_23-2151825943.jpg" alt="Contacto"
+              class="w-[420px] max-w-full rounded-2xl object-cover shadow-2xl hover:scale-105 transition-transform duration-500" />
+          </div>
+        </div>
+      </section>
 
         <!--Google Map-->
         <section class="relative w-full border-t border-gray-200 overflow-hidden group" id="google-maps">

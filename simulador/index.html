@@ -1,609 +1,593 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CrediPRO - Tu Crédito Fácil y Rápido</title>
-    <link rel="stylesheet" href="../src/styles/global.css" />
-    <link rel="icon" type="image/png" href="../src/assets/images/CREDIPROLOGO.png" />
-    <link rel="icon" type="image/x-icon" href="../src/assets/images/CREDIPROLOGO.png" />
-    <!-- AOS CSS -->
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
-    <style>
-      #hero-background-picture {
-        background-image: url("./src/assets/images/credi4.jpg");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        width: 100vw;
-        height: calc(100vh - 2.5rem);
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CrediPRO - Tu Crédito Fácil y Rápido</title>
+  <link rel="stylesheet" href="../src/styles/global.css" />
+  <link rel="icon" type="image/png" href="../src/assets/images/CREDIPROLOGO.png" />
+  <link rel="icon" type="image/x-icon" href="../src/assets/images/CREDIPROLOGO.png" />
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
-      #carrousel {
-        transition: transform 0.5 ease-in-out;
-      }
+  <style>
+    #hero-background-picture {
+      background-image: url("./src/assets/images/credi4.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      width: 100vw;
+      height: calc(100vh - 2.5rem);
+    }
 
-      #inicio::before {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: #2c3e50;
-        z-index: 0;
-        transform: skewY(6deg);
-        transform-origin: top right;
-      }
+    #carrousel {
+      transition: transform 0.5 ease-in-out;
+    }
 
-      .scrollbar-hide::-webkit-scrollbar {
-        display: none;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
+    #inicio::before {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #2c3e50;
+      z-index: 0;
+      transform: skewY(6deg);
+      transform-origin: top right;
+    }
 
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
 
-        50% {
-          transform: translateY(-10px);
-        }
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
       }
 
-      .animate-float {
-        animation: float 6s ease-in-out infinite;
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .button-hover-effect:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .icon-bounce:hover {
+      animation: bounce 0.5s;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      100% {
+        transform: translateY(0);
       }
 
-      .button-hover-effect:hover {
-        transform: scale(1.05);
-        transition: transform 0.3s ease-in-out;
+      50% {
+        transform: translateY(-6px);
       }
-      .icon-bounce:hover {
-        animation: bounce 0.5s;
-      }
-      @keyframes bounce {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-6px);
-        }
-      }
-      @keyframes slide-scroll {
-        0% {
-          transform: translateX(0);
-        }
-        100% {
-          transform: translateX(-33.333%);
-        }
-      }
-      .animate-slide-scroll {
-        animation: slide-scroll 18s linear infinite;
-      }
-    </style>
-  </head>
+    }
 
-  <body>
-    <div id="content">
-      <!-- Navigation menu  -->
-      <header x-data="{ open: false }" class="fixed top-0 left-0 w-full z-50 bg-white/70 backdrop-blur-md shadow-sm relative z-[1000]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="flex justify-between items-center h-16">
-            <!-- Logo -->
-            <a href="#" class="flex-shrink-0">
-              <img class="h-10" src="/src/assets/images/logoblue.png" alt="Logo" />
+    @keyframes slide-scroll {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-33.333%);
+      }
+    }
+
+    .animate-slide-scroll {
+      animation: slide-scroll 18s linear infinite;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="content">
+
+    <!-- Navigation menu  -->
+    <!-- Navigation menu  -->
+    <header x-data="{ open: false }" class="fixed top-0 left-0 w-full z-50 bg-white/70 backdrop-blur-md shadow-sm">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+
+          <!-- Logo -->
+          <a href="#" class="flex-shrink-0">
+            <img class="h-10" src="/src/assets/images/logoblue.png" alt="Logo" />
+          </a>
+
+          <!-- Botón hamburguesa -->
+          <div class="flex md:hidden">
+            <button @click="open = !open" type="button"
+              class="inline-flex items-center justify-center p-2 rounded-md text-slate-800 hover:bg-blue-100 focus:outline-none transition duration-300"
+              aria-controls="mobile-menu" :aria-expanded="open">
+              <svg class="h-6 w-6" x-show="!open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+              <svg class="h-6 w-6" x-show="open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Menú escritorio con efecto -->
+          <nav class="hidden md:flex space-x-6 items-center">
+            <a href="index.html"
+              class="relative group text-sm font-[montserrat-semibold] text-slate-800 hover:text-blue-700 transition">
+              Inicio
+              <span
+                class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
             </a>
+            <a href="/nosotros"
+              class="relative group text-sm font-[montserrat-medium] text-slate-800 hover:text-blue-700 transition">
+              ¿Quiénes Somos?
+              <span
+                class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="/simulador"
+              class="relative group text-sm font-[montserrat-medium] text-slate-800 hover:text-blue-700 transition">
+              Solicita tu Crédito
+              <span
+                class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="/blog"
+              class="relative group text-sm font-[montserrat-medium] text-slate-800 hover:text-blue-700 transition">
+              Blog
+              <span
+                class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="/contacto"
+              class="relative group text-sm font-[montserrat-medium] text-slate-800 hover:text-blue-700 transition">
+              Contacto
+              <span
+                class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+          </nav>
+        </div>
+      </div>
 
-            <!-- Botón hamburguesa -->
-            <div class="flex md:hidden">
-              <button
-                @click="open = !open"
-                type="button"
-                class="inline-flex items-center justify-center p-2 rounded-md text-slate-800 hover:bg-blue-100 focus:outline-none transition duration-300"
-                aria-controls="mobile-menu"
-                :aria-expanded="open"
-              >
-                <svg
-                  class="h-6 w-6"
-                  x-show="!open"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-                <svg
-                  class="h-6 w-6"
-                  x-show="open"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
+      <!-- Menú móvil (slide down con mismo estilo visual) -->
+      <div x-show="open" x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="transform opacity-0 -translate-y-4"
+        x-transition:enter-end="transform opacity-100 translate-y-0"
+        x-transition:leave="transition ease-in duration-200"
+        x-transition:leave-start="transform opacity-100 translate-y-0"
+        x-transition:leave-end="transform opacity-0 -translate-y-4"
+        class="md:hidden bg-white/95 backdrop-blur-md shadow-md px-4 pt-4 pb-6 space-y-3">
+
+        <!-- Mismo estilo de efecto en móvil -->
+        <a href="/index.html" class="relative group block text-sm font-medium text-slate-800 hover:text-blue-700 transition">
+          Inicio
+          <span
+            class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="/nosotros"
+          class="relative group block text-sm font-medium text-slate-800 hover:text-blue-700 transition">
+          ¿Quiénes Somos?
+          <span
+            class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="/simulador"
+          class="relative group block text-sm font-medium text-slate-800 hover:text-blue-700 transition">
+          Solicita tu Crédito
+          <span
+            class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="/blog" class="relative group block text-sm font-medium text-slate-800 hover:text-blue-700 transition">
+          Blog
+          <span
+            class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="/contacto"
+          class="relative group block text-sm font-medium text-slate-800 hover:text-blue-700 transition">
+          Contacto
+          <span
+            class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+        </a>
+      </div>
+    </header>
+    
+    <main class="simulador">
+
+     <!-- Hero con imagen y capa oscura -->
+      <section x-data="{
+    current: 0,
+    interval: null,
+    slides: [
+      {
+        image: '/src/assets/images/credi.jpg',
+        title: 'Simulador',
+        text: 'Simula, solicita y recibe sin complicaciones. Con Credipro, tú das el paso, nosotros te acompañamos.'
+      },
+      {
+        image: '/src/assets/images/credi3.jpg',
+        title: 'Simulador',
+        text: 'Te asesoramos desde el inicio hasta la entrega del crédito. Seguro, ágil y personalizado.'
+      },
+      {
+        image: '/src/assets/images/credi2.jpg',
+        title: 'Simulador',
+        text: 'Tu tranquilidad financiera está más cerca de lo que imaginas. Credipro está contigo.'
+      }
+    ],
+    next() { this.current = (this.current + 1) % this.slides.length },
+    prev() { this.current = (this.current - 1 + this.slides.length) % this.slides.length },
+    goTo(index) { this.current = index },
+    start() {
+      this.interval = setInterval(() => this.next(), 6000);
+    },
+    stop() {
+      clearInterval(this.interval);
+    }
+  }" x-init="start" @mouseenter="stop" @mouseleave="start" class="relative h-screen w-full overflow-hidden">
+        <!-- Slides -->
+        <template x-for="(slide, index) in slides" :key="index">
+          <div x-show="current === index" class="absolute inset-0 transition-opacity duration-700" x-transition.opacity>
+            <div class="absolute inset-0 w-full h-full bg-cover bg-center"
+              :style="`background-image: url(${slide.image})`"></div>
+            <div class="absolute inset-0 bg-black/60"></div>
+            <div class="relative z-10 flex items-center justify-center h-full text-center px-4">
+              <div class="text-white max-w-2xl mx-auto">
+                <h1 class="text-4xl md:text-5xl font-extrabold mb-4" x-text="slide.title"></h1>
+                <p class="text-lg md:text-xl mb-6" x-text="slide.text"></p>
+                <a href="./simulador"
+                  class="relative inline-block text-white font-medium bg-blue-600 hover:bg-blue-900 px-6 py-3 rounded-lg transition duration-300 overflow-hidden">
+                  <span class="relative z-10">Simula tu crédito</span>
+                  <span
+                    class="absolute bottom-0 left-0 w-0 h-[2px] bg-white transition-all duration-300 ease-in-out group-hover:w-full"></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </template>
+
+        <!-- Controles -->
+        <button @click="prev"
+          class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full z-20">
+          &#8592;
+        </button>
+        <button @click="next"
+          class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full z-20">
+          &#8594;
+        </button>
+
+        <!-- Indicadores -->
+        <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20 flex space-x-2">
+          <template x-for="(slide, index) in slides" :key="index">
+            <button @click="goTo(index)" :class="{
+          'bg-white w-3 h-3 rounded-full': true,
+          'opacity-80': current !== index,
+          'opacity-100 scale-110': current === index
+        }" class="transition-transform duration-300 ease-in-out"></button>
+          </template>
+        </div>
+      </section>
+
+    <!-- Hero mejorado con carrusel -->
+    <section class="hero bg-blue-100 py-20 px-4 text-center relative overflow-hidden">
+      <div class="max-w-3xl mx-auto">
+        <h1 class="text-5xl font-extrabold text-blue-900 mb-6 leading-tight">Simula tu Crédito de Nómina</h1>
+        <p class="text-lg text-blue-800 mb-8">
+          Descubre cuánto puedes solicitar y cómo quedarían tus pagos mensuales. Es fácil, rápido y sin compromiso.
+        </p>
+        <a href="#calculator-form"
+          class="bg-blue-700 text-white px-6 py-3 rounded-lg text-lg hover:bg-blue-800 transition duration-300">
+          Simular Ahora
+        </a>
+      </div>
+
+      <!-- Carrusel de beneficios -->
+      <div class="carousel mt-16 max-w-5xl mx-auto">
+        <div class="flex space-x-6 overflow-x-auto snap-x snap-mandatory px-4">
+          <div class="min-w-[280px] snap-center bg-white p-6 rounded-xl shadow-md">
+            <h3 class="text-xl font-semibold text-blue-800 mb-2">✅ Rápido y en línea</h3>
+            <p>Simula tu crédito sin salir de casa y obtén resultados al instante.</p>
+          </div>
+          <div class="min-w-[280px] snap-center bg-white p-6 rounded-xl shadow-md">
+            <h3 class="text-xl font-semibold text-blue-800 mb-2">🔐 Seguro y confiable</h3>
+            <p>Tus datos están protegidos. Nada se guarda ni se comparte.</p>
+          </div>
+          <div class="min-w-[280px] snap-center bg-white p-6 rounded-xl shadow-md">
+            <h3 class="text-xl font-semibold text-blue-800 mb-2">📊 Resultados claros</h3>
+            <p>Ve de inmediato tu pago estimado mensual y total.</p>
+          </div>
+          <div class="min-w-[280px] snap-center bg-white p-6 rounded-xl shadow-md">
+            <h3 class="text-xl font-semibold text-blue-800 mb-2">🆓 Totalmente gratis</h3>
+            <p>No tienes que pagar nada. Es una herramienta de orientación.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Beneficios -->
+    <section class="beneficios py-12 bg-white text-center">
+      <h2 class="text-3xl font-semibold mb-6">¿Por qué usar nuestro simulador?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div>
+          <h3 class="text-xl font-bold">Sin compromiso</h3>
+          <p>Simula sin necesidad de compartir tus datos personales.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold">Resultados inmediatos</h3>
+          <p>Obtén en segundos tu estimación de pagos.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold">100% gratuito</h3>
+          <p>No tienes que pagar nada por usar nuestra herramienta.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta py-16 bg-blue-600 text-white text-center">
+      <h2 class="text-3xl font-bold mb-4">¿Listo para solicitar tu crédito?</h2>
+      <p class="mb-6">Un asesor te guiará paso a paso en el proceso. ¡Estamos para ayudarte!</p>
+      <a href="/contacto/" class="btn bg-white text-blue-600 hover:bg-gray-100">Habla con un asesor</a>
+    </section>
+
+    <section class="w-screen py-8 px-0">
+      <div class="w-full block max-w-[64rem] my-8 mx-auto">
+        <h2 class="text-center font-bold text-[2rem] block mb-4">¿Cuanto dinero necesitas?</h2>
+        <div class="w-3/4 mx-auto">
+          <form id="calculator-form" class="w-full">
+            <h3 id="amount-text" class="text-[3rem] font-semibold font-[montserrat-semibold] text-center">$3,000.00</h3>
+            <div class="input-form amount-range">
+              <label for="amount" style="text-align: center"></label>
+              <input type="range" value="3000" min="3000" max="200000" step="3000" name="amount" id="amount" />
+              <div class="flex flex-row justify-between items-center mb-4">
+                <label for="amount"
+                  class="text-[1.25rem] font-bold text-[--dark] font-[montserrat-semibold]">$3,000.00</label>
+                <label for="amount"
+                  class="text-[1.25rem] font-bold text-[--dark] font-[montserrat-semibold]">$200,000.00</label>
+              </div>
+            </div>
+            <div class="input-form">
+              <label for="period" class="text-center font-[montserrat-medium]"> ¿En cuantas quincenas quieres pagar?
+              </label>
+              <input type="range" value="24" min="12" max="60" step="12" name="period" id="period" />
+              <div class="flex flex-row justify-between items-center mb-4 pt-1">
+                <label for="period">12</label>
+                <label for="period">24</label>
+                <label for="period">36</label>
+                <label for="period">48</label>
+                <label for="period">60</label>
+              </div>
+              <h3 class="text-center block mb-4 font-[montserrat-medium]">Tu pago quincenal sera de</h3>
+              <input type="text" disabled id="results"
+                class="text-center min-h-10 max-h-10 rounded-lg max-w-max my-0 mx-auto block px-8 py-2 w-1/2 min-w-1/2 flex items-center text-center text-white mb-4" />
+            </div>
+            <button type="submit"
+              class="min-h-10 max-h-10 rounded-lg my-0 mx-auto block px-8 py-2 w-1/2 flex items-center text-center">
+              <span class="text-center text-white mx-auto">Solicitar credito</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!--Contacto-->
+    <section id="contacto"
+      class="relative w-screen bg-gradient-to-br from-[#F2F6FC] via-white to-[#EAF2F8] py-24 px-6 overflow-hidden">
+      <!-- Decoración animada -->
+      <div class="absolute top-10 left-10 w-24 h-24 bg-blue-300/20 rounded-full blur-3xl animate-ping"></div>
+      <div class="absolute bottom-0 right-20 w-32 h-32 bg-teal-400/10 rounded-full blur-2xl animate-pulse"></div>
+
+      <div class="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-16 relative z-10">
+        <!-- Formulario -->
+        <div class="w-full lg:w-1/2 bg-white p-8 rounded-xl shadow-lg" data-aos="fade-right">
+          <h2 class="text-3xl md:text-4xl font-bold text-blue-700 mb-6 text-center">Contáctanos</h2>
+          <form class="space-y-6">
+            <div>
+              <label for="fullname" class="block text-sm font-medium text-slate-700 mb-1">Nombre completo</label>
+              <input type="text" id="fullname" name="fullname" required placeholder="Escribe tu nombre"
+                class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition" />
+            </div>
+
+            <div>
+              <label for="email" class="block text-sm font-medium text-slate-700 mb-1">Correo electrónico</label>
+              <input type="email" id="email" name="email" required placeholder="ejemplo@correo.com"
+                class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition" />
+            </div>
+
+            <div>
+              <label for="message" class="block text-sm font-medium text-slate-700 mb-1">Tu mensaje</label>
+              <textarea id="message" name="message" rows="6" required placeholder="¿En qué podemos ayudarte?"
+                class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"></textarea>
+            </div>
+
+            <div class="text-right">
+              <button type="submit"
+                class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-md shadow-md transition">
+                Enviar mensaje
               </button>
             </div>
-
-            <!-- Menú escritorio con efecto -->
-            <nav class="hidden md:flex space-x-6 items-center">
-              <a
-                href="/index.html"
-                class="relative group text-sm font-[montserrat-semibold] text-slate-800 hover:text-blue-700 transition"
-              >
-                Inicio
-                <span
-                  class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"
-                ></span>
-              </a>
-              <a
-                href="/nosotros"
-                class="relative group text-sm font-[montserrat-medium] text-slate-800 hover:text-blue-700 transition"
-              >
-                ¿Quiénes Somos?
-                <span
-                  class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"
-                ></span>
-              </a>
-              <a
-                href="/simulador"
-                class="relative group text-sm font-[montserrat-medium] text-slate-800 hover:text-blue-700 transition"
-              >
-                Solicita tu Crédito
-                <span
-                  class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"
-                ></span>
-              </a>
-              <a
-                href="/blog"
-                class="relative group text-sm font-[montserrat-medium] text-slate-800 hover:text-blue-700 transition"
-              >
-                Blog
-                <span
-                  class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"
-                ></span>
-              </a>
-              <a
-                href="/contacto"
-                class="relative group text-sm font-[montserrat-medium] text-slate-800 hover:text-blue-700 transition"
-              >
-                Contacto
-                <span
-                  class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"
-                ></span>
-              </a>
-            </nav>
-          </div>
+          </form>
         </div>
 
-        <!-- Menú móvil (slide down con mismo estilo visual) -->
-        <div
-          x-show="open"
-          x-transition:enter="transition ease-out duration-300"
-          x-transition:enter-start="transform opacity-0 -translate-y-4"
-          x-transition:enter-end="transform opacity-100 translate-y-0"
-          x-transition:leave="transition ease-in duration-200"
-          x-transition:leave-start="transform opacity-100 translate-y-0"
-          x-transition:leave-end="transform opacity-0 -translate-y-4"
-          class="md:hidden bg-white/95 backdrop-blur-md shadow-md px-4 pt-4 pb-6 space-y-3"
-        >
-          <!-- Mismo estilo de efecto en móvil -->
-          <a href="#" class="relative group block text-sm font-medium text-slate-800 hover:text-blue-700 transition">
-            Inicio
-            <span class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-          </a>
-          <a href="./nosotros" class="relative group block text-sm font-medium text-slate-800 hover:text-blue-700 transition">
-            ¿Quiénes Somos?
-            <span class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-          </a>
-          <a href="./simulador" class="relative group block text-sm font-medium text-slate-800 hover:text-blue-700 transition">
-            Solicita tu Crédito
-            <span class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-          </a>
-          <a href="./blog" class="relative group block text-sm font-medium text-slate-800 hover:text-blue-700 transition">
-            Blog
-            <span class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-          </a>
-          <a href="./contacto" class="relative group block text-sm font-medium text-slate-800 hover:text-blue-700 transition">
-            Contacto
-            <span class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-          </a>
+        <!-- Imagen ilustrativa -->
+        <div class="w-full lg:w-1/2 flex justify-center" data-aos="fade-left">
+          <img src="https://img.freepik.com/free-psd/portrait-middle-aged-woman_23-2151825943.jpg" alt="contacto"
+            class="w-[420px] rounded-xl object-cover shadow-xl" style="mix-blend-mode: multiply" />
         </div>
-      </header>
+      </div>
+    </section>
 
-      <main class="simulador">
-        <section
-          class="bg-white lg:grid lg:h-screen lg:place-content-center dark:bg-gradient-to-b from-blue-600 via-[#1D9BD1] to-teal-300"
-        >
-          <div class="mx-auto w-screen max-w-screen-xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-32">
-            <div class="mx-auto max-w-prose text-center">
-              <h1 class="text-4xl font-bold text-gray-900 sm:text-5xl dark:text-white">
-                Calcula tu credito de nomina
-                <strong class="text-indigo-600"> </strong>
-              </h1>
+    <!--Google Map-->
+    <section class="relative w-full border-t border-gray-200 overflow-hidden group" id="google-maps">
+      <!-- Título flotante -->
+      <div
+        class="absolute top-6 left-1/2 transform -translate-x-1/2 bg-white/90 backdrop-blur-sm px-6 py-2 rounded-full shadow-md text-blue-700 font-semibold text-lg z-10 animate-fade-in-down">
+        📍 Estamos aquí
+      </div>
 
-              <p class="mt-4 text-base text-pretty text-gray-700 sm:text-lg/relaxed dark:text-gray-200">
-                Tener una buena salud financiera te permite tomar decisiones con tranquilidad y te abre las puertas a mejores
-                oportunidades
-              </p>
+      <!-- Mapa interactivo -->
+      <div
+        class="relative w-full h-[450px] transform scale-100 group-hover:scale-105 transition-transform duration-700 ease-in-out rounded-lg shadow-xl">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28822.01587240633!2d-101.02044328307028!3d25.446554042883374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86886d50f00cafb1%3A0x59bbe09517b08121!2sCredipro!5e0!3m2!1sen!2smx!4v1749349426539!5m2!1sen!2smx"
+          class="w-full h-full rounded-lg filter group-hover:filter-none transition duration-700 ease-in-out"
+          style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </section>
+    </main>
 
-              <div class="mt-4 flex justify-center gap-4 sm:mt-6">
-                <a
-                  class="inline-block rounded border border-indigo-600 bg-indigo-600 px-5 py-3 font-medium text-white shadow-sm transition-colors hover:bg-indigo-700"
-                  href="#"
-                >
-                  Solicita tu credito
-                </a>
-
-                <a
-                  class="inline-block rounded border border-gray-200 px-5 py-3 font-medium text-gray-700 shadow-sm transition-colors hover:bg-gray-50 hover:text-gray-900 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-800 dark:hover:text-white"
-                  href="#"
-                >
-                  Contacto
-                </a>
-              </div>
-            </div>
+    <!--Footer-->
+    <footer
+      class="bg-gradient-to-b from-white to-blue-50 dark:from-gray-900 dark:to-slate-800 text-slate-700 dark:text-gray-200">
+      <div class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
+        <!-- Logo y redes -->
+        <div>
+          <div class="flex items-center space-x-2">
+            <span class="text-3xl font-extrabold text-blue-700 dark:text-blue-300">CrédiPRO</span>
           </div>
-        </section>
-
-        <!-- Hero mejorado con carrusel -->
-        <section class="hero bg-blue-100 py-20 px-4 text-center relative overflow-hidden">
-          <div class="max-w-3xl mx-auto">
-            <h1 class="text-5xl font-extrabold text-blue-900 mb-6 leading-tight">Simula tu Crédito de Nómina</h1>
-            <p class="text-lg text-blue-800 mb-8">
-              Descubre cuánto puedes solicitar y cómo quedarían tus pagos mensuales. Es fácil, rápido y sin compromiso.
-            </p>
-            <a
-              href="#calculator-form"
-              class="bg-blue-700 text-white px-6 py-3 rounded-lg text-lg hover:bg-blue-800 transition duration-300"
-            >
-              Simular Ahora
+          <p class="mt-4 text-sm leading-relaxed">
+            Tu tranquilidad financiera está más cerca de lo que imaginas. Te acompañamos desde la asesoría inicial hasta
+            la
+            entrega de tu crédito.
+          </p>
+          <div class="flex mt-6 space-x-4">
+            <!-- Facebook -->
+            <a href="#" class="hover:scale-110 transition-transform" aria-label="Facebook">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.406.593 24 1.325 24h11.491v-9.294H9.691V11.01h3.125V8.414c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.796.715-1.796 1.763v2.312h3.587l-.467 3.696h-3.12V24h6.116C23.406 24 24 23.406 24 22.675V1.325C24 .593 23.406 0 22.675 0z" />
+              </svg>
+            </a>
+            <!-- Instagram -->
+            <a href="#" class="hover:scale-110 transition-transform" aria-label="Instagram">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.338 3.608 1.313.975.975 1.251 2.243 1.313 3.608.058 1.267.07 1.647.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.338 2.633-1.313 3.608-.975.975-2.243 1.251-3.608 1.313-1.267.058-1.647.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.338-3.608-1.313-.975-.975-1.251-2.243-1.313-3.608C2.175 15.647 2.163 15.267 2.163 12s.012-3.584.07-4.85c.062-1.366.338-2.633 1.313-3.608.975-.975 2.243-1.251 3.608-1.313C8.416 2.175 8.796 2.163 12 2.163zM12 0C8.741 0 8.332.014 7.052.072 5.775.13 4.602.387 3.635 1.355 2.667 2.322 2.41 3.495 2.352 4.773 2.294 6.054 2.28 6.463 2.28 12s.014 5.946.072 7.227c.058 1.278.315 2.451 1.283 3.418.967.967 2.14 1.225 3.418 1.283 1.281.058 1.69.072 7.227.072s5.946-.014 7.227-.072c1.278-.058 2.451-.315 3.418-1.283.967-.967 1.225-2.14 1.283-3.418.058-1.281.072-1.69.072-7.227s-.014-5.946-.072-7.227c-.058-1.278-.315-2.451-1.283-3.418C20.451.387 19.278.13 18 .072 16.719.014 16.31 0 12 0z" />
+                <path
+                  d="M12 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a3.999 3.999 0 110-7.998 3.999 3.999 0 010 7.998z" />
+                <circle cx="18.406" cy="5.595" r="1.44" />
+              </svg>
+            </a>
+            <!-- Twitter -->
+            <a href="#" class="hover:scale-110 transition-transform" aria-label="Twitter">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M23.954 4.569c-.885.392-1.83.656-2.825.775 1.014-.611 1.794-1.574 2.163-2.724-.951.555-2.005.959-3.127 1.184-.897-.959-2.173-1.559-3.591-1.559-2.717 0-4.924 2.206-4.924 4.924 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.708.869 3.215 2.188 4.099-.807-.026-1.566-.248-2.229-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.6 3.418-1.68 1.319-3.809 2.105-6.102 2.105-.395 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.21 7.557 2.21 9.054 0 14-7.496 14-13.986 0-.21 0-.423-.015-.637.961-.689 1.8-1.56 2.46-2.548l-.047-.02z" />
+              </svg>
             </a>
           </div>
+        </div>
 
-          <!-- Carrusel de beneficios -->
-          <div class="carousel mt-16 max-w-5xl mx-auto">
-            <div class="flex space-x-6 overflow-x-auto snap-x snap-mandatory px-4">
-              <div class="min-w-[280px] snap-center bg-white p-6 rounded-xl shadow-md">
-                <h3 class="text-xl font-semibold text-blue-800 mb-2">✅ Rápido y en línea</h3>
-                <p>Simula tu crédito sin salir de casa y obtén resultados al instante.</p>
-              </div>
-              <div class="min-w-[280px] snap-center bg-white p-6 rounded-xl shadow-md">
-                <h3 class="text-xl font-semibold text-blue-800 mb-2">🔐 Seguro y confiable</h3>
-                <p>Tus datos están protegidos. Nada se guarda ni se comparte.</p>
-              </div>
-              <div class="min-w-[280px] snap-center bg-white p-6 rounded-xl shadow-md">
-                <h3 class="text-xl font-semibold text-blue-800 mb-2">📊 Resultados claros</h3>
-                <p>Ve de inmediato tu pago estimado mensual y total.</p>
-              </div>
-              <div class="min-w-[280px] snap-center bg-white p-6 rounded-xl shadow-md">
-                <h3 class="text-xl font-semibold text-blue-800 mb-2">🆓 Totalmente gratis</h3>
-                <p>No tienes que pagar nada. Es una herramienta de orientación.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Beneficios -->
-        <section class="beneficios py-12 bg-white text-center">
-          <h2 class="text-3xl font-semibold mb-6">¿Por qué usar nuestro simulador?</h2>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <div>
-              <h3 class="text-xl font-bold">Sin compromiso</h3>
-              <p>Simula sin necesidad de compartir tus datos personales.</p>
-            </div>
-            <div>
-              <h3 class="text-xl font-bold">Resultados inmediatos</h3>
-              <p>Obtén en segundos tu estimación de pagos.</p>
-            </div>
-            <div>
-              <h3 class="text-xl font-bold">100% gratuito</h3>
-              <p>No tienes que pagar nada por usar nuestra herramienta.</p>
-            </div>
-          </div>
-        </section>
-
-        <!-- CTA Final -->
-        <section class="cta py-16 bg-blue-600 text-white text-center">
-          <h2 class="text-3xl font-bold mb-4">¿Listo para solicitar tu crédito?</h2>
-          <p class="mb-6">Un asesor te guiará paso a paso en el proceso. ¡Estamos para ayudarte!</p>
-          <a href="/contacto/" class="btn bg-white text-blue-600 hover:bg-gray-100">Habla con un asesor</a>
-        </section>
-
-        <section class="w-screen py-8 px-0">
-          <div class="w-full block max-w-[64rem] my-8 mx-auto">
-            <h2 class="text-center font-bold text-[2rem] block mb-4">¿Cuanto dinero necesitas?</h2>
-            <div class="w-3/4 mx-auto">
-              <form id="calculator-form" class="w-full">
-                <h3 id="amount-text" class="text-[3rem] font-semibold font-[montserrat-semibold] text-center">$3,000.00</h3>
-                <div class="input-form amount-range">
-                  <label for="amount" style="text-align: center"></label>
-                  <input type="range" value="3000" min="3000" max="200000" step="3000" name="amount" id="amount" />
-                  <div class="flex flex-row justify-between items-center mb-4">
-                    <label for="amount" class="text-[1.25rem] font-bold text-[--dark] font-[montserrat-semibold]"
-                      >$3,000.00</label
-                    >
-                    <label for="amount" class="text-[1.25rem] font-bold text-[--dark] font-[montserrat-semibold]"
-                      >$200,000.00</label
-                    >
-                  </div>
-                </div>
-                <div class="input-form">
-                  <label for="period" class="text-center font-[montserrat-medium]"> ¿En cuantas quincenas quieres pagar? </label>
-                  <input type="range" value="24" min="12" max="60" step="12" name="period" id="period" />
-                  <div class="flex flex-row justify-between items-center mb-4 pt-1">
-                    <label for="period">12</label>
-                    <label for="period">24</label>
-                    <label for="period">36</label>
-                    <label for="period">48</label>
-                    <label for="period">60</label>
-                  </div>
-                  <h3 class="text-center block mb-4 font-[montserrat-medium]">Tu pago quincenal sera de</h3>
-                  <input
-                    type="text"
-                    disabled
-                    id="results"
-                    class="text-center min-h-10 max-h-10 rounded-lg max-w-max my-0 mx-auto block px-8 py-2 w-1/2 min-w-1/2 flex items-center text-center text-white mb-4"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  class="min-h-10 max-h-10 rounded-lg my-0 mx-auto block px-8 py-2 w-1/2 flex items-center text-center"
-                >
-                  <span class="text-center text-white mx-auto">Solicitar credito</span>
-                </button>
-              </form>
-            </div>
-          </div>
-        </section>
-
-        <!--Contacto-->
-        <section
-          id="contacto"
-          class="relative w-screen bg-gradient-to-br from-[#F2F6FC] via-white to-[#EAF2F8] py-24 px-6 overflow-hidden"
-        >
-          <!-- Decoración animada -->
-          <div class="absolute top-10 left-10 w-24 h-24 bg-blue-300/20 rounded-full blur-3xl animate-ping"></div>
-          <div class="absolute bottom-0 right-20 w-32 h-32 bg-teal-400/10 rounded-full blur-2xl animate-pulse"></div>
-
-          <div class="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-16 relative z-10">
-            <!-- Formulario -->
-            <div class="w-full lg:w-1/2 bg-white p-8 rounded-xl shadow-lg" data-aos="fade-right">
-              <h2 class="text-3xl md:text-4xl font-bold text-blue-700 mb-6 text-center">Contáctanos</h2>
-              <form class="space-y-6">
-                <div>
-                  <label for="fullname" class="block text-sm font-medium text-slate-700 mb-1">Nombre completo</label>
-                  <input
-                    type="text"
-                    id="fullname"
-                    name="fullname"
-                    required
-                    placeholder="Escribe tu nombre"
-                    class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-                  />
-                </div>
-
-                <div>
-                  <label for="email" class="block text-sm font-medium text-slate-700 mb-1">Correo electrónico</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    placeholder="ejemplo@correo.com"
-                    class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-                  />
-                </div>
-
-                <div>
-                  <label for="message" class="block text-sm font-medium text-slate-700 mb-1">Tu mensaje</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows="6"
-                    required
-                    placeholder="¿En qué podemos ayudarte?"
-                    class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-                  ></textarea>
-                </div>
-
-                <div class="text-right">
-                  <button
-                    type="submit"
-                    class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-md shadow-md transition"
-                  >
-                    Enviar mensaje
-                  </button>
-                </div>
-              </form>
-            </div>
-
-            <!-- Imagen ilustrativa -->
-            <div class="w-full lg:w-1/2 flex justify-center" data-aos="fade-left">
-              <img
-                src="https://img.freepik.com/free-psd/portrait-middle-aged-woman_23-2151825943.jpg"
-                alt="contacto"
-                class="w-[420px] rounded-xl object-cover shadow-xl"
-                style="mix-blend-mode: multiply"
-              />
-            </div>
-          </div>
-        </section>
-
-        <!--Google Map-->
-        <section class="relative w-full border-t border-gray-200 overflow-hidden group" id="google-maps">
-          <!-- Título flotante -->
-          <div
-            class="absolute top-6 left-1/2 transform -translate-x-1/2 bg-white/90 backdrop-blur-sm px-6 py-2 rounded-full shadow-md text-blue-700 font-semibold text-lg z-10 animate-fade-in-down"
-          >
-            📍 Estamos aquí
-          </div>
-
-          <!-- Mapa interactivo -->
-          <div
-            class="relative w-full h-[450px] transform scale-100 group-hover:scale-105 transition-transform duration-700 ease-in-out rounded-lg shadow-xl"
-          >
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28822.01587240633!2d-101.02044328307028!3d25.446554042883374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86886d50f00cafb1%3A0x59bbe09517b08121!2sCredipro!5e0!3m2!1sen!2smx!4v1749349426539!5m2!1sen!2smx"
-              class="w-full h-full rounded-lg filter group-hover:filter-none transition duration-700 ease-in-out"
-              style="border: 0"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            >
-            </iframe>
-          </div>
-        </section>
-      </main>
-
-      <!--Footer-->
-      <footer
-        class="bg-gradient-to-b from-white to-blue-50 dark:from-gray-900 dark:to-slate-800 text-slate-700 dark:text-gray-200"
-      >
-        <div class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
-          <!-- Logo y redes -->
+        <!-- Enlaces rápidos -->
+        <div class="grid grid-cols-2 gap-6">
           <div>
-            <div class="flex items-center space-x-2">
-              <span class="text-3xl font-extrabold text-blue-700 dark:text-blue-300">CrédiPRO</span>
-            </div>
-            <p class="mt-4 text-sm leading-relaxed">
-              Tu tranquilidad financiera está más cerca de lo que imaginas. Te acompañamos desde la asesoría inicial hasta la
-              entrega de tu crédito.
-            </p>
-            <div class="flex mt-6 space-x-4">
-              <!-- Facebook -->
-              <a href="#" class="hover:scale-110 transition-transform" aria-label="Facebook">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path
-                    d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.406.593 24 1.325 24h11.491v-9.294H9.691V11.01h3.125V8.414c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.796.715-1.796 1.763v2.312h3.587l-.467 3.696h-3.12V24h6.116C23.406 24 24 23.406 24 22.675V1.325C24 .593 23.406 0 22.675 0z"
-                  />
-                </svg>
-              </a>
-              <!-- Instagram -->
-              <a href="#" class="hover:scale-110 transition-transform" aria-label="Instagram">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path
-                    d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.338 3.608 1.313.975.975 1.251 2.243 1.313 3.608.058 1.267.07 1.647.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.338 2.633-1.313 3.608-.975.975-2.243 1.251-3.608 1.313-1.267.058-1.647.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.338-3.608-1.313-.975-.975-1.251-2.243-1.313-3.608C2.175 15.647 2.163 15.267 2.163 12s.012-3.584.07-4.85c.062-1.366.338-2.633 1.313-3.608.975-.975 2.243-1.251 3.608-1.313C8.416 2.175 8.796 2.163 12 2.163zM12 0C8.741 0 8.332.014 7.052.072 5.775.13 4.602.387 3.635 1.355 2.667 2.322 2.41 3.495 2.352 4.773 2.294 6.054 2.28 6.463 2.28 12s.014 5.946.072 7.227c.058 1.278.315 2.451 1.283 3.418.967.967 2.14 1.225 3.418 1.283 1.281.058 1.69.072 7.227.072s5.946-.014 7.227-.072c1.278-.058 2.451-.315 3.418-1.283.967-.967 1.225-2.14 1.283-3.418.058-1.281.072-1.69.072-7.227s-.014-5.946-.072-7.227c-.058-1.278-.315-2.451-1.283-3.418C20.451.387 19.278.13 18 .072 16.719.014 16.31 0 12 0z"
-                  />
-                  <path
-                    d="M12 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a3.999 3.999 0 110-7.998 3.999 3.999 0 010 7.998z"
-                  />
-                  <circle cx="18.406" cy="5.595" r="1.44" />
-                </svg>
-              </a>
-              <!-- Twitter -->
-              <a href="#" class="hover:scale-110 transition-transform" aria-label="Twitter">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path
-                    d="M23.954 4.569c-.885.392-1.83.656-2.825.775 1.014-.611 1.794-1.574 2.163-2.724-.951.555-2.005.959-3.127 1.184-.897-.959-2.173-1.559-3.591-1.559-2.717 0-4.924 2.206-4.924 4.924 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.708.869 3.215 2.188 4.099-.807-.026-1.566-.248-2.229-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.6 3.418-1.68 1.319-3.809 2.105-6.102 2.105-.395 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.21 7.557 2.21 9.054 0 14-7.496 14-13.986 0-.21 0-.423-.015-.637.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"
-                  />
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          <!-- Enlaces rápidos -->
-          <div class="grid grid-cols-2 gap-6">
-            <div>
-              <h3 class="text-lg font-semibold text-blue-700 dark:text-blue-300">Créditos</h3>
-              <ul class="mt-4 space-y-2 text-sm">
-                <li><a href="#" class="hover:text-blue-600">Créditos Financieros</a></li>
-                <li><a href="#" class="hover:text-blue-600">Asesoría</a></li>
-                <li><a href="#" class="hover:text-blue-600">Solicita tu Crédito</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 class="text-lg font-semibold text-blue-700 dark:text-blue-300">Nosotros</h3>
-              <ul class="mt-4 space-y-2 text-sm">
-                <li><a href="#" class="hover:text-blue-600">¿Quiénes somos?</a></li>
-                <li><a href="#" class="hover:text-blue-600">Qué ofrecemos</a></li>
-                <li><a href="#" class="hover:text-blue-600">Blog</a></li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Contacto -->
-          <div>
-            <h3 class="text-lg font-semibold text-blue-700 dark:text-blue-300">Contáctanos</h3>
+            <h3 class="text-lg font-semibold text-blue-700 dark:text-blue-300">Créditos</h3>
             <ul class="mt-4 space-y-2 text-sm">
-              <li><a href="#" class="hover:text-blue-600">Ayuda</a></li>
-              <li><a href="#" class="hover:text-blue-600">Política de privacidad</a></li>
-              <li><a href="#" class="hover:text-blue-600">Términos y condiciones</a></li>
+              <li><a href="#" class="hover:text-blue-600">Créditos Financieros</a></li>
+              <li><a href="#" class="hover:text-blue-600">Asesoría</a></li>
+              <li><a href="#" class="hover:text-blue-600">Solicita tu Crédito</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-blue-700 dark:text-blue-300">Nosotros</h3>
+            <ul class="mt-4 space-y-2 text-sm">
+              <li><a href="#" class="hover:text-blue-600">¿Quiénes somos?</a></li>
+              <li><a href="#" class="hover:text-blue-600">Qué ofrecemos</a></li>
+              <li><a href="#" class="hover:text-blue-600">Blog</a></li>
             </ul>
           </div>
         </div>
-        <div class="border-t border-slate-200 dark:border-slate-700 mt-12 text-center py-6 text-sm">
-          &copy; 2025 CrédiPRO. Todos los derechos reservados.
+
+        <!-- Contacto -->
+        <div>
+          <h3 class="text-lg font-semibold text-blue-700 dark:text-blue-300">Contáctanos</h3>
+          <ul class="mt-4 space-y-2 text-sm">
+            <li><a href="#" class="hover:text-blue-600">Ayuda</a></li>
+            <li><a href="#" class="hover:text-blue-600">Política de privacidad</a></li>
+            <li><a href="#" class="hover:text-blue-600">Términos y condiciones</a></li>
+          </ul>
         </div>
-      </footer>
-    </div>
-  </body>
+      </div>
+      <div class="border-t border-slate-200 dark:border-slate-700 mt-12 text-center py-6 text-sm">
+        &copy; 2025 CrédiPRO. Todos los derechos reservados.
+      </div>
+    </footer>
+  </div>
+</body>
 
-  <script src="../src/javascript/dom.js"></script>
-  <script src="./simulador.js"></script>
-  <!--Scripts-->
-  <script src="/src/javascript/dom.js"></script>
-  <script>
-    const carrousel = document.querySelector("#carrousel");
-    const slides = document.querySelectorAll(".slide");
-    const periodInputElement = document.querySelector("input#period");
-    const amountInputElement = document.querySelector("input#amount");
-    const amountTextElement = document.querySelector("h3#amount-text");
-    const resultInputElement = document.querySelector("#results");
-    const formElement = document.querySelector("form#calculator-form");
-    const mexicanCurrency = { style: "currency", currency: "MXN" };
-    let index = 0;
+<script src="../src/javascript/dom.js"></script>
+<script src="./simulador.js"></script>
+<!--Scripts-->
+<script src="/src/javascript/dom.js"></script>
+<script>
+  const carrousel = document.querySelector("#carrousel");
+  const slides = document.querySelectorAll(".slide");
+  const periodInputElement = document.querySelector("input#period");
+  const amountInputElement = document.querySelector("input#amount");
+  const amountTextElement = document.querySelector("h3#amount-text");
+  const resultInputElement = document.querySelector("#results");
+  const formElement = document.querySelector("form#calculator-form");
+  const mexicanCurrency = { style: "currency", currency: "MXN" };
+  let index = 0;
 
-    const nextSlide = () => {
-      index = (index + 1) % slides.length;
-      carrousel.style.tansform = `translateX(-${index * 100}%)`;
-    };
+  const nextSlide = () => {
+    index = (index + 1) % slides.length;
+    carrousel.style.tansform = `translateX(-${index * 100}%)`;
+  };
 
-    const calculateCreditAmount = () => {
-      try {
-        const amount = parseFloat(amountInputElement.value.replace(/,/g, ""));
-        const time = parseInt(periodInputElement.value);
-        const rate = 0.05;
+  const calculateCreditAmount = () => {
+    try {
+      const amount = parseFloat(amountInputElement.value.replace(/,/g, ""));
+      const time = parseInt(periodInputElement.value);
+      const rate = 0.05;
 
-        if (isNaN(amount) || isNaN(time)) throw new Error("Por favor, ingresa valores válidos.");
+      if (isNaN(amount) || isNaN(time)) throw new Error("Por favor, ingresa valores válidos.");
 
-        const payment = (amount * rate) / (1 - Math.pow(1 + rate, -time));
-        const textContext = getCurrencyFormat(payment.toFixed(2));
-        const currency = getCurrencyFormat(amount);
+      const payment = (amount * rate) / (1 - Math.pow(1 + rate, -time));
+      const textContext = getCurrencyFormat(payment.toFixed(2));
+      const currency = getCurrencyFormat(amount);
 
-        amountTextElement.textContent = currency ?? 0;
-        resultInputElement.value = textContext ?? 0;
-      } catch (error) {
-        window.alert(error.message);
-      }
-    };
+      amountTextElement.textContent = currency ?? 0;
+      resultInputElement.value = textContext ?? 0;
+    } catch (error) {
+      window.alert(error.message);
+    }
+  };
 
-    const getCurrencyFormat = (value) => new Intl.NumberFormat("es-MX", mexicanCurrency).format(value);
+  const getCurrencyFormat = (value) => new Intl.NumberFormat("es-MX", mexicanCurrency).format(value);
 
-    periodInputElement.addEventListener("input", calculateCreditAmount);
-    amountInputElement.addEventListener("input", calculateCreditAmount);
-    formElement.addEventListener("submit", (e) => e.preventDefault());
+  periodInputElement.addEventListener("input", calculateCreditAmount);
+  amountInputElement.addEventListener("input", calculateCreditAmount);
+  formElement.addEventListener("submit", (e) => e.preventDefault());
 
-    calculateCreditAmount();
+  calculateCreditAmount();
 
-    setInterval(() => nextSlide(), 4000);
-  </script>
-  <!-- AOS JS -->
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      duration: 800,
-      once: true,
-    });
-  </script>
+  setInterval(() => nextSlide(), 4000);
+</script>
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,
+    once: true,
+  });
+</script>
+
 </html>

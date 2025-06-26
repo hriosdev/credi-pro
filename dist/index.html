@@ -14,7 +14,6 @@
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
-
   <style>
     #hero-background-picture {
       background-image: url("./src/assets/images/credi4.jpg");
@@ -65,24 +64,54 @@
       animation: float 6s ease-in-out infinite;
     }
 
-     .button-hover-effect:hover {
-        transform: scale(1.05);
-        transition: transform 0.3s ease-in-out;
+    .button-hover-effect:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .icon-bounce:hover {
+      animation: bounce 0.5s;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      100% {
+        transform: translateY(0);
       }
-      .icon-bounce:hover {
-        animation: bounce 0.5s;
+
+      50% {
+        transform: translateY(-6px);
       }
-      @keyframes bounce {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-6px); }
+    }
+
+    @keyframes slide-scroll {
+      0% {
+        transform: translateX(0);
       }
-      @keyframes slide-scroll {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-33.333%); }
+
+      100% {
+        transform: translateX(-33.333%);
       }
-      .animate-slide-scroll {
-        animation: slide-scroll 18s linear infinite;
+    }
+
+    .animate-slide-scroll {
+      animation: slide-scroll 18s linear infinite;
+    }
+
+    @keyframes slideX {
+      0% {
+        transform: translateX(0);
       }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .animate-slide-x {
+      animation: slideX 40s linear infinite;
+    }
   </style>
 </head>
 
@@ -90,7 +119,8 @@
   <div id="content">
 
     <!-- Navigation menu  -->
-    <header x-data="{ open: false }" class="fixed top-0 left-0 w-full z-50 bg-white/70 backdrop-blur-md shadow-sm">
+
+    <header x-data="{ open: false }" class="fixed top-0 left-0 w-full z-50 bg-white/50 backdrop-blur-md shadow-sm">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
 
@@ -193,41 +223,39 @@
     </header>
 
     <main>
-
       <!--Inicio  -->
 
       <!-- Hero con imagen y capa oscura -->
       <section x-data="{
-    current: 0,
-    interval: null,
-    slides: [
-      {
-        image: './src/assets/images/credi4.jpg',
-        title: 'Tu Crédito Fácil y Rápido',
-        text: 'Simula, solicita y recibe sin complicaciones. Con Credipro, tú das el paso, nosotros te acompañamos.'
-      },
-      {
-        image: './src/assets/images/credi2.jpg',
-        title: 'Respaldo Financiero a tu Medida',
-        text: 'Te asesoramos desde el inicio hasta la entrega del crédito. Seguro, ágil y personalizado.'
-      },
-      {
-        image: './src/assets/images/credi.jpg',
-        title: 'Impulsa tus Metas Hoy',
-        text: 'Tu tranquilidad financiera está más cerca de lo que imaginas. Credipro está contigo.'
-      }
-    ],
-    next() { this.current = (this.current + 1) % this.slides.length },
-    prev() { this.current = (this.current - 1 + this.slides.length) % this.slides.length },
-    goTo(index) { this.current = index },
-    start() {
-      this.interval = setInterval(() => this.next(), 6000);
-    },
-    stop() {
-      clearInterval(this.interval);
-    }
-  }" x-init="start" @mouseenter="stop" @mouseleave="start" class="relative h-screen w-full overflow-hidden">
-
+				current: 0,
+				interval: null,
+				slides: [
+				{
+					image: './src/assets/images/credi4.jpg',
+					title: 'Tu Crédito Fácil y Rápido',
+					text: 'Simula, solicita y recibe sin complicaciones. Con Credipro, tú das el paso, nosotros te acompañamos.'
+				},
+				{
+					image: './src/assets/images/credi2.jpg',
+					title: 'Respaldo Financiero a tu Medida',
+					text: 'Te asesoramos desde el inicio hasta la entrega del crédito. Seguro, ágil y personalizado.'
+				},
+				{
+					image: './src/assets/images/credi.jpg',
+					title: 'Impulsa tus Metas Hoy',
+					text: 'Tu tranquilidad financiera está más cerca de lo que imaginas. Credipro está contigo.'
+				}
+				],
+				next() { this.current = (this.current + 1) % this.slides.length },
+				prev() { this.current = (this.current - 1 + this.slides.length) % this.slides.length },
+				goTo(index) { this.current = index },
+				start() {
+				this.interval = setInterval(() => this.next(), 6000);
+				},
+				stop() {
+				clearInterval(this.interval);
+				}
+			}" x-init="start" @mouseenter="stop" @mouseleave="start" class="relative h-screen w-full overflow-hidden">
         <!-- Slides -->
         <template x-for="(slide, index) in slides" :key="index">
           <div x-show="current === index" class="absolute inset-0 transition-opacity duration-700" x-transition.opacity>
@@ -274,17 +302,14 @@
       <!--Entrada-->
       <section id="inicio" class="bg-[#F2F4F8] py-20 px-6 sm:px-12 lg:px-24">
         <div class="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 max-w-6xl mx-auto">
-
           <!-- Texto -->
           <div class="lg:w-1/2 text-center lg:text-left" data-aos="fade-right">
-            <h2 class="text-4xl md:text-5xl font-bold text-[#003B73] mb-6 leading-tight">
-              Tu crédito sin complicaciones
+            <h2 class="text-4xl md:text-5xl font-bold text-[#003B73] mb-6 leading-tight">Tu crédito sin complicaciones
             </h2>
             <p class="text-lg text-[#111827] mb-8">
               En <span class="text-[#007BFF] font-semibold">CrediPRO</span> estamos para ayudarte a dar ese paso que
               necesitas.
-              Solicita tu crédito de nómina de forma rápida, segura y sin estrés.
-              Confiable, claro y 100% personalizado.
+              Solicita tu crédito de nómina de forma rápida, segura y sin estrés. Confiable, claro y 100% personalizado.
             </p>
             <a href="#simulador"
               class="inline-block bg-[#007BFF] hover:bg-[#005dc1] text-white px-6 py-3 rounded-lg font-medium shadow-md transition duration-300">
@@ -297,7 +322,6 @@
             <img src="/src/assets/images/ejecutivo3.png" alt="Mujer sonriendo"
               class="w-full max-w-md mx-auto lg:mx-0 rounded-2xl shadow-lg object-cover aspect-square ring-4 ring-white" />
           </div>
-
         </div>
       </section>
 
@@ -310,8 +334,9 @@
 
         <div class="relative z-10 max-w-3xl mx-auto px-4" data-aos="zoom-in">
           <h2 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4">Convierte tus metas en realidad</h2>
-          <p class="text-xl md:text-2xl text-blue-100 mb-8">Solicita tu crédito hoy mismo y da el primer paso con
-            respaldo profesional.</p>
+          <p class="text-xl md:text-2xl text-blue-100 mb-8">
+            Solicita tu crédito hoy mismo y da el primer paso con respaldo profesional.
+          </p>
 
           <a href="/contacto"
             class="inline-block bg-white text-blue-700 px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:bg-gray-100 hover:scale-105 transition-transform duration-300">
@@ -323,21 +348,21 @@
       <!-- Section media-->
       <section class="relative bg-[#F2F4F8] py-24 px-6">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10" data-aos="fade-up">
-
           <!-- Card 1 -->
           <div
             class="group bg-white shadow-lg rounded-2xl p-8 transition-transform hover:-translate-y-2 hover:shadow-2xl">
             <div class="text-[#007BFF] text-5xl mb-4">🎯</div>
             <h3 class="text-2xl font-semibold text-[#003B73] mb-4">Convierte tus metas en realidad</h3>
-            <p class="text-gray-600 mb-6">No es solo un crédito. Es la herramienta que te ayudará a avanzar. Nosotros te
-              guiamos en cada paso.</p>
-            <ul class="text-sm text-[#003B73] mb-6 space-y-1">
+            <p class="text-gray-600 mb-4 block h-[134px]">
+              No es solo un crédito. Es la herramienta que te ayudará a avanzar. Nosotros te guiamos en cada paso.
+            </p>
+            <ul class="text-sm text-[#003B73] mb-8 space-y-1">
               <li>✅ Rápido</li>
               <li>✅ Transparente</li>
               <li>✅ Sin complicaciones</li>
             </ul>
             <a href="#calculator-form"
-              class="inline-block bg-blue-600 hover:bg-[#c96b2d] text-white px-5 py-3 rounded-lg font-medium transition">Simula
+              class="inline-block bg-blue-600 hover:bg-[#c96b2d] text-white px-5 py-3 rounded-lg font-medium transition w-full text-center">Simula
               tu crédito ahora</a>
           </div>
 
@@ -346,15 +371,18 @@
             class="group bg-white shadow-lg rounded-2xl p-8 transition-transform hover:-translate-y-2 hover:shadow-2xl">
             <div class="text-[#007BFF] text-5xl mb-4">🚀</div>
             <h3 class="text-2xl font-semibold text-[#003B73] mb-4">Oportunidades a tu alcance</h3>
-            <p class="text-gray-600 mb-6">Descubre cómo nuestras soluciones pueden transformar tu vida. Con herramientas
-              personalizadas, tus objetivos están más cerca que nunca.</p>
-            <ul class="text-sm text-[#003B73] mb-6 space-y-1">
+            <p class="text-gray-600 mb-4 block h-[134px]">
+              Descubre cómo nuestras soluciones pueden transformar tu vida. Con herramientas personalizadas, tus
+              objetivos están
+              más cerca que nunca.
+            </p>
+            <ul class="text-sm text-[#003B73] mb-8 space-y-1">
               <li>✅ Personalizado</li>
               <li>✅ Seguro</li>
               <li>✅ Eficiente</li>
             </ul>
             <a href="#calculator-form"
-              class="inline-block bg-blue-600 hover:bg-[#c96b2d] text-white px-5 py-3 rounded-lg font-medium transition">Conoce
+              class="inline-block bg-blue-600 hover:bg-[#c96b2d] text-white px-5 py-3 rounded-lg font-medium transition w-full text-center">Conoce
               más</a>
           </div>
 
@@ -363,18 +391,18 @@
             class="group bg-white shadow-lg rounded-2xl p-8 transition-transform hover:-translate-y-2 hover:shadow-2xl">
             <div class="text-[#007BFF] text-5xl mb-4">🌟</div>
             <h3 class="text-2xl font-semibold text-[#003B73] mb-4">Tu futuro comienza hoy</h3>
-            <p class="text-gray-600 mb-6">No esperes más para crear la vida que deseas. Nuestro apoyo está diseñado para
-              impulsar tu crecimiento.</p>
-            <ul class="text-sm text-[#003B73] mb-6 space-y-1">
+            <p class="text-gray-600 mb-4 block h-[134px]">
+              No esperes más para crear la vida que deseas. Nuestro apoyo está diseñado para impulsar tu crecimiento.
+            </p>
+            <ul class="text-sm text-[#003B73] mb-8 space-y-1">
               <li>✅ Innovador</li>
               <li>✅ Accesible</li>
               <li>✅ Confiable</li>
             </ul>
             <a href="#calculator-form"
-              class="inline-block bg-blue-600 hover:bg-[#c96b2d] text-white px-5 py-3 rounded-lg font-medium transition">Empieza
+              class="inline-block bg-blue-600 hover:bg-[#c96b2d] text-white px-5 py-3 rounded-lg font-medium transition w-full text-center">Empieza
               ahora</a>
           </div>
-
         </div>
       </section>
 
@@ -383,21 +411,24 @@
         <div class="max-w-7xl mx-auto">
           <div class="text-center mb-16" data-aos="fade-down">
             <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Da el siguiente paso</h2>
-            <p class="text-lg text-white/90 max-w-2xl mx-auto">Tu futuro financiero comienza con una decisión. Credipro
-              te acompaña para convertir tus planes en logros concretos.</p>
+            <p class="text-lg text-white/90 max-w-2xl mx-auto">
+              Tu futuro financiero comienza con una decisión. Credipro te acompaña para convertir tus planes en logros
+              concretos.
+            </p>
           </div>
 
           <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 px-2 md:px-0" data-aos="zoom-in-up">
-
             <!-- Card 1 -->
             <div
               class="relative bg-white rounded-xl shadow-xl p-6 sm:p-8 transition-transform duration-300 hover:scale-105">
               <div
-                class="absolute -top-6 left-6 bg-blue-600 text-white w-12 h-12 flex items-center justify-center rounded-full text-xl shadow-md">
-                🎯</div>
-              <h3 class="text-2xl font-semibold text-blue-900 mt-10 mb-4">Convierte tus metas</h3>
-              <p class="text-gray-600 mb-4">No es solo un crédito. Es la herramienta que te ayudará a avanzar. Te
-                guiamos en cada paso.</p>
+                class="absolute -top-6 left-6 bg-blue-600 text-white w-12 h-12 flex items-center justify-center rounded-full text-xl shadow-md scale-[1.5]">
+                🎯
+              </div>
+              <h3 class="text-2xl font-semibold text-blue-900 mt-4 mb-8 block h-[3rem]">Convierte tus metas</h3>
+              <p class="text-gray-600 mb-4 block h-[96px]">
+                No es solo un crédito. Es la herramienta que te ayudará a avanzar. Te guiamos en cada paso.
+              </p>
               <a href="#calculator-form"
                 class="text-blue-700 hover:text-orange-500 font-semibold transition-colors">Simula tu crédito →</a>
             </div>
@@ -406,11 +437,13 @@
             <div
               class="relative bg-white rounded-xl shadow-xl p-6 sm:p-8 transition-transform duration-300 hover:scale-105">
               <div
-                class="absolute -top-6 left-6 bg-blue-600 text-white w-12 h-12 flex items-center justify-center rounded-full text-xl shadow-md">
-                🚀</div>
-              <h3 class="text-2xl font-semibold text-blue-900 mt-10 mb-4">Oportunidades a tu alcance</h3>
-              <p class="text-gray-600 mb-4">Con herramientas personalizadas y atención directa, tus objetivos están más
-                cerca que nunca.</p>
+                class="absolute -top-6 left-6 bg-blue-600 text-white w-12 h-12 flex items-center justify-center rounded-full text-xl shadow-md scale-[1.5]">
+                🚀
+              </div>
+              <h3 class="text-2xl font-semibold text-blue-900 mt-4 mb-8 block h-[3rem]">Oportunidades a tu alcance</h3>
+              <p class="text-gray-600 mb-4 block h-[96px]">
+                Con herramientas personalizadas y atención directa, tus objetivos están más cerca que nunca.
+              </p>
               <a href="#calculator-form"
                 class="text-blue-700 hover:text-orange-500 font-semibold transition-colors">Conoce más →</a>
             </div>
@@ -419,15 +452,16 @@
             <div
               class="relative bg-white rounded-xl shadow-xl p-6 sm:p-8 transition-transform duration-300 hover:scale-105">
               <div
-                class="absolute -top-6 left-6 bg-blue-600 text-white w-12 h-12 flex items-center justify-center rounded-full text-xl shadow-md">
-                🌟</div>
-              <h3 class="text-2xl font-semibold text-blue-900 mt-10 mb-4">Tu futuro comienza hoy</h3>
-              <p class="text-gray-600 mb-4">Nuestro apoyo está diseñado para impulsarte, desde la asesoría hasta la
-                tranquilidad financiera.</p>
+                class="absolute -top-6 left-6 bg-blue-600 text-white w-12 h-12 flex items-center justify-center rounded-full text-xl shadow-md scale-[1.5]">
+                🌟
+              </div>
+              <h3 class="text-2xl font-semibold text-blue-900 mt-4 mb-8 block h-[3rem]">Tu futuro comienza hoy</h3>
+              <p class="text-gray-600 mb-4 block h-[96px]">
+                Nuestro apoyo está diseñado para impulsarte, desde la asesoría hasta la tranquilidad financiera.
+              </p>
               <a href="#calculator-form"
                 class="text-blue-700 hover:text-orange-500 font-semibold transition-colors">Empieza ahora →</a>
             </div>
-
           </div>
         </div>
 
@@ -436,22 +470,21 @@
         <div class="absolute bottom-0 left-0 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
       </section>
 
-
       <!--Nosotros-->
       <section id="nosotros" class="relative bg-[#F2F4F8] py-24 px-6 overflow-hidden">
         <div class="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-12"
           data-aos="fade-up" data-aos-delay="200">
-
           <!-- Texto -->
           <div class="lg:w-1/2 text-center lg:text-left">
             <h2 class="text-4xl md:text-5xl font-bold text-[#003B73] mb-6 leading-tight">¿Quiénes somos?</h2>
             <p class="text-lg text-slate-700 mb-6">
-              En <span class="font-bold text-[#007BFF]">CrediPRO</span> nos especializamos en gestionar <strong>créditos
-                de nómina para trabajadores del gobierno</strong>, brindando una experiencia ágil, clara y sin
-              complicaciones.
-              <br /><br />
+              En <span class="font-bold text-[#007BFF]">CrediPRO</span> nos especializamos en gestionar
+              <strong>créditos de nómina para trabajadores del gobierno</strong>, brindando una experiencia ágil, clara
+              y sin
+              complicaciones. <br /><br />
               Te acompañamos desde la asesoría inicial hasta que recibes tu crédito, colaborando con instituciones
-              financieras líderes para brindarte soluciones accesibles y seguras.
+              financieras
+              líderes para brindarte soluciones accesibles y seguras.
             </p>
             <a href="#simulador"
               class="inline-block bg-blue-600 hover:bg-[#c96b2d] text-white px-6 py-3 rounded-lg font-medium shadow-md transition duration-300">
@@ -463,7 +496,7 @@
           <div class="lg:w-1/2 relative" data-aos="zoom-in">
             <div class="relative rounded-xl overflow-hidden shadow-xl">
               <img src="/src/assets/images/ejecutiva2.png" alt="who-we-are"
-                class="w-full h-full object-cover aspect-square" style="mix-blend-mode: multiply;">
+                class="w-full h-full object-cover aspect-square" style="mix-blend-mode: multiply" />
               <div class="absolute inset-0 bg-[#007BFF]/10 backdrop"></div>
             </div>
           </div>
@@ -524,7 +557,6 @@
         <div class="absolute bottom-0 left-0 w-64 h-64 bg-[#e28743]/10 rounded-full blur-3xl"></div>
       </section>
 
-
       <!-- Blog Section -->
       <section id="blog" class="relative bg-gradient-to-br from-[#F2F4F8] via-white to-[#EAF2F8] py-24 px-6">
         <div class="max-w-7xl mx-auto" data-aos="fade-up" data-aos-delay="150">
@@ -533,7 +565,8 @@
             <h2 class="text-4xl md:text-5xl font-extrabold text-[#003B73] mb-4">📝 Ideas, Tips y Novedades</h2>
             <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               Inspírate con artículos que te ayudan a tomar decisiones financieras más inteligentes y dar el siguiente
-              paso con confianza.
+              paso con
+              confianza.
             </p>
           </header>
 
@@ -546,8 +579,11 @@
                 class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105" />
               <div class="p-6">
                 <h3 class="text-3xl font-bold text-[#003B73] mb-4">¿Qué es un crédito de nómina?</h3>
-                <p class="text-gray-600 mb-4 text-lg">Explora a fondo cómo transformar tus finanzas, mejorar tu
-                  estabilidad económica y alcanzar tus metas con pasos seguros.</p>
+                <p class="text-gray-600 mb-4 text-lg">
+                  Explora a fondo cómo transformar tus finanzas, mejorar tu estabilidad económica y alcanzar tus metas
+                  con pasos
+                  seguros.
+                </p>
                 <a href="#" class="text-[#007BFF] font-semibold hover:underline">Leer más →</a>
               </div>
             </article>
@@ -591,119 +627,174 @@
         <div class="absolute -top-10 right-10 w-32 h-32 bg-[#007BFF]/10 rounded-full blur-3xl animate-pulse"></div>
       </section>
 
-          <!-- FAQ Section -->
-    <section id="faq" class="relative bg-gradient-to-br from-[#E5F0FF] via-white to-[#F2F4F8] py-20 px-6">
-      <div class="max-w-5xl mx-auto" data-aos="fade-up">
-        <h2 class="text-4xl md:text-5xl font-bold text-[#003B73] text-center mb-12">Preguntas Frecuentes</h2>
-        <div class="space-y-6 divide-y divide-[#007BFF]/20">
-          <details class="group bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-500 transform hover:scale-[1.02]">
-            <summary class="flex justify-between items-center cursor-pointer text-lg font-semibold text-[#007BFF]">
-              ¿Qué necesito para solicitar un crédito?
-              <svg class="w-5 h-5 transition-transform group-open:rotate-180 text-[#007BFF]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-              </svg>
-            </summary>
-            <p class="text-gray-700 mt-4">Solo necesitas tu identificación oficial, comprobante de ingresos y llenar nuestro formulario en línea.</p>
-          </details>
-          <details class="group bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-500 transform hover:scale-[1.02]">
-            <summary class="flex justify-between items-center cursor-pointer text-lg font-semibold text-[#007BFF]">
-              ¿Cuánto tiempo tarda la aprobación?
-              <svg class="w-5 h-5 transition-transform group-open:rotate-180 text-[#007BFF]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-              </svg>
-            </summary>
-            <p class="text-gray-700 mt-4">Generalmente entre 24 y 72 horas hábiles dependiendo del perfil del solicitante.</p>
-          </details>
-          <details class="group bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-500 transform hover:scale-[1.02]">
-            <summary class="flex justify-between items-center cursor-pointer text-lg font-semibold text-[#007BFF]">
-              ¿Puedo pagar anticipadamente?
-              <svg class="w-5 h-5 transition-transform group-open:rotate-180 text-[#007BFF]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-              </svg>
-            </summary>
-            <p class="text-gray-700 mt-4">Sí, puedes liquidar tu crédito anticipadamente sin penalización.</p>
-          </details>
+      <!-- FAQ Section -->
+      <section id="faq" class="relative bg-gradient-to-br from-[#E5F0FF] via-white to-[#F2F4F8] py-20 px-6">
+        <div class="max-w-5xl mx-auto" data-aos="fade-up">
+          <h2 class="text-4xl md:text-5xl font-bold text-[#003B73] text-center mb-12">Preguntas Frecuentes</h2>
+          <div class="space-y-6 divide-y divide-[#007BFF]/20">
+            <details
+              class="group bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-500 transform hover:scale-[1.02]">
+              <summary class="flex justify-between items-center cursor-pointer text-lg font-semibold text-[#007BFF]">
+                ¿Qué necesito para solicitar un crédito?
+                <svg class="w-5 h-5 transition-transform group-open:rotate-180 text-[#007BFF]" fill="none"
+                  stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <p class="text-gray-700 mt-4">
+                Solo necesitas tu identificación oficial, comprobante de ingresos y llenar nuestro formulario en línea.
+              </p>
+            </details>
+            <details
+              class="group bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-500 transform hover:scale-[1.02]">
+              <summary class="flex justify-between items-center cursor-pointer text-lg font-semibold text-[#007BFF]">
+                ¿Cuánto tiempo tarda la aprobación?
+                <svg class="w-5 h-5 transition-transform group-open:rotate-180 text-[#007BFF]" fill="none"
+                  stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <p class="text-gray-700 mt-4">Generalmente entre 24 y 72 horas hábiles dependiendo del perfil del
+                solicitante.</p>
+            </details>
+            <details
+              class="group bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-500 transform hover:scale-[1.02]">
+              <summary class="flex justify-between items-center cursor-pointer text-lg font-semibold text-[#007BFF]">
+                ¿Puedo pagar anticipadamente?
+                <svg class="w-5 h-5 transition-transform group-open:rotate-180 text-[#007BFF]" fill="none"
+                  stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <p class="text-gray-700 mt-4">Sí, puedes liquidar tu crédito anticipadamente sin penalización.</p>
+            </details>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-        <!-- Testimonios Slider -->
-    <section class="relative bg-[#F2F4F8] py-24 px-6">
-      <div class="max-w-6xl mx-auto" data-aos="fade-up">
-        <h2 class="text-4xl md:text-5xl font-bold text-center text-[#003B73] mb-12">Testimonios Reales</h2>
-        <div class="relative overflow-hidden">
-          <div class="flex space-x-6 animate-slide-scroll snap-x snap-mandatory overflow-x-auto px-4 pb-4">
-            <div class="flex-shrink-0 snap-center flex flex-col items-center bg-white rounded-xl shadow-md p-6 min-w-[260px] text-center transition-transform duration-300 hover:-translate-y-1">
-              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Maria G" class="w-20 h-20 rounded-full mb-4">
-              <p class="text-gray-700 italic mb-2">“Gracias a CrediPRO pude remodelar mi casa sin complicaciones.”</p>
-              <h4 class="text-[#007BFF] font-semibold">María G.</h4>
-            </div>
-            <div class="flex-shrink-0 snap-center flex flex-col items-center bg-white rounded-xl shadow-md p-6 min-w-[260px] text-center transition-transform duration-300 hover:-translate-y-1">
-              <img src="https://randomuser.me/api/portraits/men/35.jpg" alt="Luis R" class="w-20 h-20 rounded-full mb-4">
-              <p class="text-gray-700 italic mb-2">“El crédito llegó en menos de 48 horas. Excelente atención.”</p>
-              <h4 class="text-[#007BFF] font-semibold">Luis R.</h4>
-            </div>
-            <div class="flex-shrink-0 snap-center flex flex-col items-center bg-white rounded-xl shadow-md p-6 min-w-[260px] text-center transition-transform duration-300 hover:-translate-y-1">
-              <img src="https://randomuser.me/api/portraits/women/52.jpg" alt="Elena M" class="w-20 h-20 rounded-full mb-4">
-              <p class="text-gray-700 italic mb-2">“Me explicaron todo con claridad. ¡Recomiendo CrediPRO!”</p>
-              <h4 class="text-[#007BFF] font-semibold">Elena M.</h4>
+      <!-- Testimonios Slider -->
+      <section class="relative bg-gradient-to-br from-[#EAF2F8] via-white to-[#F2F6FC] py-24 px-6 overflow-hidden">
+        <div class="max-w-6xl mx-auto" data-aos="fade-up">
+          <h2 class="text-4xl md:text-5xl font-bold text-center text-[#003B73] mb-12">💬 Testimonios Reales</h2>
+
+          <div class="relative overflow-hidden">
+            <div class="flex space-x-6 animate-slide-x snap-x snap-mandatory px-4 pb-4 w-max">
+              <!-- Testimonios -->
+              <div
+                class="flex-shrink-0 snap-center bg-white rounded-3xl shadow-lg p-6 min-w-[280px] text-center relative transition-transform duration-300 hover:shadow-2xl hover:-translate-y-2">
+                <div
+                  class="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden transform transition-transform duration-500 hover:scale-110">
+                  <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Maria G"
+                    class="object-cover w-full h-full">
+                </div>
+                <p class="text-gray-700 italic mb-2">“Gracias a CrediPRO pude remodelar mi casa sin complicaciones.”</p>
+                <h4 class="text-[#007BFF] font-semibold">María G.</h4>
+              </div>
+
+              <div
+                class="flex-shrink-0 snap-center bg-white rounded-3xl shadow-lg p-6 min-w-[280px] text-center relative transition-transform duration-300 hover:shadow-2xl hover:-translate-y-2">
+                <div
+                  class="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden transform transition-transform duration-500 hover:scale-110">
+                  <img src="https://randomuser.me/api/portraits/men/35.jpg" alt="Luis R"
+                    class="object-cover w-full h-full">
+                </div>
+                <p class="text-gray-700 italic mb-2">“El crédito llegó en menos de 48 horas. Excelente atención.”</p>
+                <h4 class="text-[#007BFF] font-semibold">Luis R.</h4>
+              </div>
+
+              <div
+                class="flex-shrink-0 snap-center bg-white rounded-3xl shadow-lg p-6 min-w-[280px] text-center relative transition-transform duration-300 hover:shadow-2xl hover:-translate-y-2">
+                <div
+                  class="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden transform transition-transform duration-500 hover:scale-110">
+                  <img src="https://randomuser.me/api/portraits/women/52.jpg" alt="Elena M"
+                    class="object-cover w-full h-full">
+                </div>
+                <p class="text-gray-700 italic mb-2">“Me explicaron todo con claridad. ¡Recomiendo CrediPRO!”</p>
+                <h4 class="text-[#007BFF] font-semibold">Elena M.</h4>
+              </div>
+
+              <!-- Copias para looping visual (puedes duplicar más si lo deseas) -->
+              <div
+                class="flex-shrink-0 snap-center bg-white rounded-3xl shadow-lg p-6 min-w-[280px] text-center transition-transform duration-300 hover:-translate-y-2">
+                <div
+                  class="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden transform transition-transform duration-500 hover:scale-110">
+                  <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Maria G"
+                    class="object-cover w-full h-full">
+                </div>
+                <p class="text-gray-700 italic mb-2">“Gracias a CrediPRO pude remodelar mi casa sin complicaciones.”</p>
+                <h4 class="text-[#007BFF] font-semibold">María G.</h4>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+
+        <!-- decoraciones -->
+        <div
+          class="absolute top-10 left-0 w-40 h-40 bg-[#00B7C2]/20 rounded-full blur-3xl pointer-events-none animate-ping">
+        </div>
+        <div
+          class="absolute bottom-0 right-0 w-48 h-48 bg-[#007BFF]/10 rounded-full blur-2xl pointer-events-none animate-pulse">
+        </div>
+
+      </section>
 
 
       <!--Contacto-->
-      <section id="contacto"
-        class="relative w-screen bg-gradient-to-br from-[#F2F6FC] via-white to-[#EAF2F8] py-24 px-6 overflow-hidden">
-        <!-- Decoración animada -->
-        <div class="absolute top-10 left-10 w-24 h-24 bg-blue-300/20 rounded-full blur-3xl animate-ping"></div>
-        <div class="absolute bottom-0 right-20 w-32 h-32 bg-teal-400/10 rounded-full blur-2xl animate-pulse"></div>
+      <!-- Contacto Mejorado con fondo y estilo coherente -->
+      <section id="contacto" class="relative w-full bg-[#EAF2F8] py-24 px-6 overflow-hidden">
+        <!-- Decoraciones suaves -->
+        <div
+          class="absolute top-10 left-10 w-24 h-24 bg-[#007BFF]/20 rounded-full blur-3xl animate-ping pointer-events-none">
+        </div>
+        <div
+          class="absolute bottom-10 right-10 w-32 h-32 bg-[#00B7C2]/20 rounded-full blur-2xl animate-pulse pointer-events-none">
+        </div>
 
-        <div class="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-16 relative z-10">
+        <div class="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-12 relative z-10">
           <!-- Formulario -->
-          <div class="w-full lg:w-1/2 bg-white p-8 rounded-xl shadow-lg" data-aos="fade-right">
-            <h2 class="text-3xl md:text-4xl font-bold text-blue-700 mb-6 text-center">Contáctanos</h2>
+          <div class="w-full lg:w-1/2 bg-white p-10 rounded-2xl shadow-xl" data-aos="fade-right">
+            <h2 class="text-4xl md:text-5xl font-bold text-[#003B73] mb-8 text-center">
+              📬 Contáctanos
+            </h2>
             <form class="space-y-6">
               <div>
-                <label for="fullname" class="block text-sm font-medium text-slate-700 mb-1">Nombre completo</label>
-                <input type="text" id="fullname" name="fullname" required placeholder="Escribe tu nombre"
-                  class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition" />
+                <label for="fullname" class="block text-sm font-semibold text-slate-700 mb-1">Nombre completo</label>
+                <input type="text" id="fullname" name="fullname" placeholder="Escribe tu nombre"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#007BFF] transition shadow-sm hover:shadow-md" />
               </div>
 
               <div>
-                <label for="email" class="block text-sm font-medium text-slate-700 mb-1">Correo electrónico</label>
-                <input type="email" id="email" name="email" required placeholder="ejemplo@correo.com"
-                  class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition" />
+                <label for="email" class="block text-sm font-semibold text-slate-700 mb-1">Correo electrónico</label>
+                <input type="email" id="email" name="email" placeholder="ejemplo@correo.com"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#007BFF] transition shadow-sm hover:shadow-md" />
               </div>
 
               <div>
-                <label for="message" class="block text-sm font-medium text-slate-700 mb-1">Tu mensaje</label>
-                <textarea id="message" name="message" rows="6" required placeholder="¿En qué podemos ayudarte?"
-                  class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"></textarea>
+                <label for="message" class="block text-sm font-semibold text-slate-700 mb-1">Mensaje</label>
+                <textarea id="message" name="message" rows="5" placeholder="¿En qué podemos ayudarte?"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#007BFF] transition shadow-sm hover:shadow-md"></textarea>
               </div>
 
-              <div class="text-right">
+              <div class="text-center">
                 <button type="submit"
-                  class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-md shadow-md transition">
+                  class="inline-block bg-[#007BFF] hover:bg-[#005bb5] text-white font-semibold px-8 py-3 rounded-lg shadow-md transition-transform duration-300 hover:scale-105">
                   Enviar mensaje
                 </button>
               </div>
             </form>
           </div>
 
-          <!-- Imagen ilustrativa -->
+          <!-- Imagen -->
           <div class="w-full lg:w-1/2 flex justify-center" data-aos="fade-left">
-            <img src="https://img.freepik.com/free-psd/portrait-middle-aged-woman_23-2151825943.jpg" alt="contacto"
-              class="w-[420px] rounded-xl object-cover shadow-xl" style="mix-blend-mode: multiply;" />
+            <img src="https://img.freepik.com/free-psd/portrait-middle-aged-woman_23-2151825943.jpg" alt="Contacto"
+              class="w-[420px] max-w-full rounded-2xl object-cover shadow-2xl hover:scale-105 transition-transform duration-500" />
           </div>
         </div>
       </section>
 
 
       <!--Google Map-->
-      <section class="relative w-full border-t border-gray-200 overflow-hidden group">
+      <section class="relative w-full border-t border-gray-200 overflow-hidden group" id="google-maps">
         <!-- Título flotante -->
         <div
           class="absolute top-6 left-1/2 transform -translate-x-1/2 bg-white/90 backdrop-blur-sm px-6 py-2 rounded-full shadow-md text-blue-700 font-semibold text-lg z-10 animate-fade-in-down">
@@ -715,27 +806,27 @@
           class="relative w-full h-[450px] transform scale-100 group-hover:scale-105 transition-transform duration-700 ease-in-out rounded-lg shadow-xl">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28822.01587240633!2d-101.02044328307028!3d25.446554042883374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86886d50f00cafb1%3A0x59bbe09517b08121!2sCredipro!5e0!3m2!1sen!2smx!4v1749349426539!5m2!1sen!2smx"
-            class="w-full h-full rounded-lg filter  group-hover:filter-none transition duration-700 ease-in-out"
-            style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            class="w-full h-full rounded-lg filter group-hover:filter-none transition duration-700 ease-in-out"
+            style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
           </iframe>
         </div>
       </section>
-
-
     </main>
 
     <!--Footer-->
     <footer
       class="bg-gradient-to-b from-white to-blue-50 dark:from-gray-900 dark:to-slate-800 text-slate-700 dark:text-gray-200">
       <div class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
-
         <!-- Logo y redes -->
         <div>
           <div class="flex items-center space-x-2">
             <span class="text-3xl font-extrabold text-blue-700 dark:text-blue-300">CrédiPRO</span>
           </div>
-          <p class="mt-4 text-sm leading-relaxed">Tu tranquilidad financiera está más cerca de lo que imaginas. Te
-            acompañamos desde la asesoría inicial hasta la entrega de tu crédito.</p>
+          <p class="mt-4 text-sm leading-relaxed">
+            Tu tranquilidad financiera está más cerca de lo que imaginas. Te acompañamos desde la asesoría inicial hasta
+            la
+            entrega de tu crédito.
+          </p>
           <div class="flex mt-6 space-x-4">
             <!-- Facebook -->
             <a href="#" class="hover:scale-110 transition-transform" aria-label="Facebook">
@@ -793,14 +884,11 @@
             <li><a href="#" class="hover:text-blue-600">Términos y condiciones</a></li>
           </ul>
         </div>
-
       </div>
       <div class="border-t border-slate-200 dark:border-slate-700 mt-12 text-center py-6 text-sm">
         &copy; 2025 CrédiPRO. Todos los derechos reservados.
       </div>
     </footer>
-
-
   </div>
 </body>
 
