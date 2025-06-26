@@ -268,7 +268,7 @@ header.navigation-menu {
   }
 
   & article:nth-child(1) > div:first-child {
-    background-image: url("../assets/images/economic-one.jpg");
+    background-image: url("../assets/images/credi.jpg");
   }
 
   & article:nth-child(2) > div:first-child {
@@ -408,7 +408,7 @@ header.navigation-menu {
 
 /* Estilos para laptops comunes */
 /* Laptops comunes (1200px - 1439px)*/
-@media (min-width: 75rem) and (max-width: 89.9375rem) {
+@media (min-width: 75rem) and (max-width: 89.9375rem) {    
   main {
     width: 100vw;
     & section {
@@ -452,4 +452,54 @@ header.navigation-menu {
       }
     }
   }
+}
+
+
+/* Hero */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .nav-link {
+    @apply text-[13px] font-[montserrat-medium] text-slate-800 hover:text-blue-600 px-5 h-14 flex items-center transition;
+  }
+
+  .nav-link-active {
+    @apply nav-link font-semibold text-blue-600 border-b-2 border-blue-600;
+  }
+}
+
+@layer utilities {
+  @keyframes fade-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+  }
+
+  .animate-slide-in-top {
+    animation: fade-in-up 0.9s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 1s ease-out forwards;
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .delay-200 { animation-delay: 0.2s; }
+  .delay-500 { animation-delay: 0.5s; }
 }
