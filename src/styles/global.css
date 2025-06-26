@@ -319,8 +319,7 @@ header.navigation-menu {
   main {
     width: 100vw;
     & section {
-      width: inherit;
-      padding: 1rem 0;
+      width: inherit; 
       & > div:first-child {
         max-width: calc(100vw - 2rem);
         margin: 1rem auto;
@@ -335,8 +334,7 @@ header.navigation-menu {
   main {
     width: 100vw;
     & section {
-      width: inherit;
-      padding: 2rem 0;
+      width: inherit; 
       & > div:first-child {
         max-width: calc(100vw - 2rem);
         margin: 1rem auto;
@@ -350,7 +348,8 @@ header.navigation-menu {
         font-size: 1.5rem !important;
         text-align: center;
       }
-      & img, & a {
+      & img,
+      & a {
         margin: 0 auto;
       }
       & p {
@@ -368,17 +367,17 @@ header.navigation-menu {
   main {
     width: 100vw;
     & section {
-      width: inherit;
-      padding: 1.75rem 0;
+      width: inherit; 
       & > div:first-child {
         max-width: calc(100vw - 4rem);
         margin: 1.75rem auto;
       }
-       & h2 {
+      & h2 {
         font-size: 1.5rem !important;
         text-align: center;
       }
-      & img, & a {
+      & img,
+      & a {
         margin: 0 auto;
       }
       & p {
@@ -396,8 +395,7 @@ header.navigation-menu {
   main {
     width: 100vw;
     & section {
-      width: inherit;
-      padding: 1.75rem 0;
+      width: inherit; 
       & > div:first-child {
         max-width: 56.25rem;
         margin: 1.75rem auto;
@@ -408,12 +406,11 @@ header.navigation-menu {
 
 /* Estilos para laptops comunes */
 /* Laptops comunes (1200px - 1439px)*/
-@media (min-width: 75rem) and (max-width: 89.9375rem) {    
+@media (min-width: 75rem) and (max-width: 89.9375rem) {
   main {
     width: 100vw;
     & section {
-      width: inherit;
-      padding: 2rem 0;
+      width: inherit; 
       & > div:first-child {
         max-width: 67.5rem;
         margin: 2rem auto;
@@ -428,8 +425,7 @@ header.navigation-menu {
   main {
     width: 100vw;
     & section {
-      width: inherit;
-      padding: 2rem 0;
+      width: inherit; 
       & > div:first-child {
         max-width: 67.5rem;
         margin: 2rem auto;
@@ -444,8 +440,7 @@ header.navigation-menu {
   main {
     width: 100vw;
     & section {
-      width: inherit;
-      padding: 2rem 0;
+      width: inherit; 
       & > div:first-child {
         max-width: 67.5rem;
         margin: 2rem auto;
@@ -453,7 +448,6 @@ header.navigation-menu {
     }
   }
 }
-
 
 /* Hero */
 
@@ -496,10 +490,18 @@ header.navigation-menu {
   }
 
   @keyframes fade-in {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 
-  .delay-200 { animation-delay: 0.2s; }
-  .delay-500 { animation-delay: 0.5s; }
+  .delay-200 {
+    animation-delay: 0.2s;
+  }
+  .delay-500 {
+    animation-delay: 0.5s;
+  }
 }
