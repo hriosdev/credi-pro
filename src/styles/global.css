@@ -223,8 +223,8 @@ h6 {
 #calculator-form button[type="submit"],
 #calculator-form input#results {
   border-radius: 2rem;
-  background-color: #4e72e6;
-  border: 3px solid rgb(5, 5, 161);
+  background-color: #219EBC;
+  border: 3px solid #023047;
   font-family: "montserrat-semibold";
   & span {
     font-size: 1rem;
