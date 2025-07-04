@@ -131,7 +131,7 @@ textarea {
 }
 
 input[type="range"] {
-  accent-color: var(--primary);
+  accent-color: var();
 }
 
 label {

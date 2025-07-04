@@ -17,13 +17,13 @@
       theme: {
         extend: {
           colors: {
-            primary: '#023047',
-            'primary-light': '#219EBC',
-            secondary: '#0F5132',
-            back: '#8ECAE6',
-            accent: '#FFB703',
-            'neutral-bg': '#F4F6F8',
-            alerts: '#FB8500',
+            primary: "#023047",
+            "primary-light": "#219EBC",
+            secondary: "#0F5132",
+            back: "#8ECAE6",
+            accent: "#FFB703",
+            "neutral-bg": "#F4F6F8",
+            alerts: "#FB8500",
           },
         },
       },
@@ -136,11 +136,9 @@
   <div id="content">
 
     <!-- Navigation menu  -->
-
     <header x-data="{ open: false }" class="fixed top-0 left-0 w-full z-50 bg-white/50 backdrop-blur-md shadow-sm">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
-
           <!-- Logo -->
           <a href="#" class="flex-shrink-0">
             <img class="h-10" src="./src/assets/images/logo_paleta.png" alt="Logo" />
@@ -164,7 +162,7 @@
 
           <!-- Menú escritorio con efecto -->
           <nav class="hidden md:flex space-x-6 items-center">
-            <a href="index.html"
+            <a href="#" onclick="return false;"
               class="relative group text-sm font-[montserrat-semibold] text-slate-800 hover:text-primary-light transition">
               Inicio
               <span
@@ -206,9 +204,9 @@
         x-transition:leave-start="transform opacity-100 translate-y-0"
         x-transition:leave-end="transform opacity-0 -translate-y-4"
         class="md:hidden bg-white/95 backdrop-blur-md shadow-md px-4 pt-4 pb-6 space-y-3">
-
         <!-- Mismo estilo de efecto en móvil -->
-        <a href="#" class="relative group block text-sm font-medium text-slate-800 hover:text-blue-700 transition">
+        <a href="#" onclick="return false;"
+          class="relative group block text-sm font-medium text-slate-800 hover:text-blue-700 transition">
           Inicio
           <span
             class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
@@ -244,35 +242,36 @@
 
       <!-- Hero con imagen y capa oscura -->
       <section x-data="{
-				current: 0,
-				interval: null,
-				slides: [
-				{
-					image: './src/assets/images/credi4.jpg',
-					title: 'Tu Crédito Fácil y Rápido',
-					text: 'Simula, solicita y recibe sin complicaciones. Con Credipro, tú das el paso, nosotros te acompañamos.'
-				},
-				{
-					image: './src/assets/images/credi2.jpg',
-					title: 'Respaldo Financiero a tu Medida',
-					text: 'Te asesoramos desde el inicio hasta la entrega del crédito. Seguro, ágil y personalizado.'
-				},
-				{
-					image: './src/assets/images/credi.jpg',
-					title: 'Impulsa tus Metas Hoy',
-					text: 'Tu tranquilidad financiera está más cerca de lo que imaginas. Credipro está contigo.'
-				}
-				],
-				next() { this.current = (this.current + 1) % this.slides.length },
-				prev() { this.current = (this.current - 1 + this.slides.length) % this.slides.length },
-				goTo(index) { this.current = index },
-				start() {
-				this.interval = setInterval(() => this.next(), 6000);
-				},
-				stop() {
-				clearInterval(this.interval);
-				}
-			}" x-init="start" @mouseenter="stop" @mouseleave="start" class="relative h-screen w-full overflow-hidden">
+                      current: 0,
+                      interval: null,
+                      slides: [
+                      {
+                        image: './src/assets/images/credi4.jpg',
+                        title: 'Tu Crédito Fácil y Rápido',
+                        text: 'Simula, solicita y recibe sin complicaciones. Con Credipro, tú das el paso, nosotros te acompañamos.'
+                      },
+                      {
+                        image: './src/assets/images/credi2.jpg',
+                        title: 'Respaldo Financiero a tu Medida',
+                        text: 'Te asesoramos desde el inicio hasta la entrega del crédito. Seguro, ágil y personalizado.'
+                      },
+                      {
+                        image: './src/assets/images/credi.jpg',
+                        title: 'Impulsa tus Metas Hoy',
+                        text: 'Tu tranquilidad financiera está más cerca de lo que imaginas. Credipro está contigo.'
+                      }
+                      ],
+                      next() { this.current = (this.current + 1) % this.slides.length },
+                      prev() { this.current = (this.current - 1 + this.slides.length) % this.slides.length },
+                      goTo(index) { this.current = index },
+                      start() {
+                      this.interval = setInterval(() => this.next(), 6000);
+                      },
+                      stop() {
+                      clearInterval(this.interval);
+                      }
+                    }" x-init="start" @mouseenter="stop" @mouseleave="start"
+        class="relative h-screen w-full overflow-hidden">
         <!-- Slides -->
         <template x-for="(slide, index) in slides" :key="index">
           <div x-show="current === index" class="absolute inset-0 transition-opacity duration-700" x-transition.opacity>
@@ -308,25 +307,26 @@
         <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20 flex space-x-2">
           <template x-for="(slide, index) in slides" :key="index">
             <button @click="goTo(index)" :class="{
-          'bg-white w-3 h-3 rounded-full': true,
-          'opacity-80': current !== index,
-          'opacity-100 scale-110': current === index
-        }" class="transition-transform duration-300 ease-in-out"></button>
+                                  'bg-white w-3 h-3 rounded-full': true,
+                                  'opacity-80': current !== index,
+                                  'opacity-100 scale-110': current === index
+                                }" class="transition-transform duration-300 ease-in-out"></button>
           </template>
         </div>
       </section>
 
       <!--Entrada-->
-      <section id="inicio" class="bg-[#F2F4F8] py-20 px-6 sm:px-12 lg:px-24">
+      <section id="inicio" class="bg-[#F2F4F8] pt-14 pb-7 px-6 sm:px-12 lg:px-24">
         <div class="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 max-w-6xl mx-auto">
           <!-- Texto -->
           <div class="lg:w-1/2 text-center lg:text-left" data-aos="fade-right">
-            <h2 class="text-4xl md:text-5xl font-bold text-primary mb-6 leading-tight">Tu crédito sin complicaciones
+            <h2 class="text-4xl md:text-5xl font-bold text-primary mb-6 leading-tight">
+              Tu crédito sin complicaciones
             </h2>
             <p class="text-lg text-primary mb-8">
-              En <span class="text-primary-light font-semibold">CrediPRO</span> estamos para ayudarte a dar ese paso que
-              necesitas.
-              Solicita tu crédito de nómina de forma rápida, segura y sin estrés. Confiable, claro y 100% personalizado.
+              En <span class="text-primary-light font-semibold">CrediPRO</span> estamos para ayudarte
+              a dar ese paso que necesitas. Solicita tu crédito de nómina de forma rápida, segura y
+              sin estrés. Confiable, claro y 100% personalizado.
             </p>
             <a href="#simulador"
               class="inline-block bg-primary-light hover:bg-alerts text-white px-6 py-3 rounded-lg font-medium shadow-md transition duration-300">
@@ -343,20 +343,20 @@
       </section>
 
       <!--Nosotros-->
-      <section id="nosotros" class="relative bg-[#F2F4F8]  py-24 px-6 overflow-hidden">
+      <section id="nosotros" class="relative bg-[#F2F4F8] pt-7 pb-14 px-6 overflow-hidden">
         <div class="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-12"
           data-aos="fade-up" data-aos-delay="200">
           <!-- Texto -->
           <div class="lg:w-1/2 text-center lg:text-left">
-            <h2 class="text-4xl md:text-5xl font-bold text-primary mb-6 leading-tight">¿Quiénes somos?</h2>
+            <h2 class="text-4xl md:text-5xl font-bold text-primary mb-6 leading-tight">
+              ¿Quiénes somos?
+            </h2>
             <p class="text-lg text-slate-700 mb-6">
-              En <span class="font-bold text-primary-light">CrediPRO</span> nos especializamos en gestionar
-              <strong>créditos de nómina para trabajadores del gobierno</strong>, brindando una experiencia ágil, clara
-              y sin
-              complicaciones. <br /><br />
-              Te acompañamos desde la asesoría inicial hasta que recibes tu crédito, colaborando con instituciones
-              financieras
-              líderes para brindarte soluciones accesibles y seguras.
+              En <span class="font-bold text-primary-light">CrediPRO</span> nos especializamos en
+              gestionar <strong>créditos de nómina para trabajadores del gobierno</strong>, brindando
+              una experiencia ágil, clara y sin complicaciones. <br /><br />
+              Te acompañamos desde la asesoría inicial hasta que recibes tu crédito, colaborando con
+              instituciones financieras líderes para brindarte soluciones accesibles y seguras.
             </p>
             <a href="#simulador"
               class="inline-block bg-primary-light hover:bg-alerts text-white px-6 py-3 rounded-lg font-medium shadow-md transition duration-300">
@@ -368,7 +368,8 @@
           <div class="lg:w-1/2 relative" data-aos="zoom-in">
             <div class="relative rounded-xl overflow-hidden shadow-xl">
               <img src="/src/assets/images/ejecutiva2.png" alt="who-we-are"
-                class="w-full h-full object-cover aspect-square" style="mix-blend-mode: multiply" />
+                class="w-full max-w-md mx-auto lg:mx-0 rounded-2xl shadow-lg object-cover aspect-square ring-4 ring-white"
+                style="mix-blend-mode: multiply" />
               <div class="absolute inset-0 bg-[#007BFF]/10 backdrop"></div>
             </div>
           </div>
@@ -381,13 +382,15 @@
 
       <!--Call to Action Dark-->
       <section
-        class="relative bg-gradient-to-b from-white to-blue-50 dark:from-gray-900 dark:to-slate-800 py-20 text-white text-center overflow-hidden">
+        class="relative bg-gradient-to-b from-white to-blue-50 dark:from-gray-900 dark:to-slate-800 py-14 text-white text-center overflow-hidden">
         <!-- Fondo animado decorativo -->
         <div class="absolute top-0 left-0 w-40 h-40 bg-white/10 rounded-full blur-3xl animate-ping"></div>
         <div class="absolute bottom-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-pulse"></div>
 
         <div class="relative z-10 max-w-3xl mx-auto px-4" data-aos="zoom-in">
-          <h2 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4">Convierte tus metas en realidad</h2>
+          <h2 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4">
+            Convierte tus metas en realidad
+          </h2>
           <p class="text-xl md:text-2xl text-blue-100 mb-8">
             Solicita tu crédito hoy mismo y da el primer paso con respaldo profesional.
           </p>
@@ -400,16 +403,20 @@
       </section>
 
       <!--cotizacion-->
-      <section id="simulador" class="relative bg-[#F2F4F8] py-24 px-6 overflow-hidden">
-        <div class="max-w-4xl mx-auto  rounded-2xl shadow-xl" data-aos="fade-right" data-aos="fade-up">
-          <h2 class="text-4xl md:text-5xl font-bold text-center text-primary mb-12">¿Cuánto dinero necesitas?</h2>
+      <section id="simulador" class="relative bg-[#F2F4F8] py-14 px-6 overflow-hidden">
+        <div class="max-w-4xl mx-auto rounded-2xl shadow-xl" data-aos="fade-right" data-aos="fade-up">
+          <h2 class="text-4xl md:text-5xl font-bold text-center text-primary mb-12">
+            ¿Cuánto dinero necesitas?
+          </h2>
 
           <form id="calculator-form" class="bg-white rounded-xl shadow-lg p-10 space-y-8">
             <!-- Monto visual -->
             <div class="text-center">
-              <h3 id="amount-text" class="text-5xl font-extrabold text-primary-light tracking-wide mb-4">$3,000.00</h3>
+              <h3 id="amount-text" class="text-5xl font-extrabold text-primary-light tracking-wide mb-4">
+                $3,000.00
+              </h3>
               <input type="range" value="3000" min="3000" max="200000" step="3000" name="amount" id="amount"
-                class="w-full accent-[#007BFF]" />
+                class="w-full accent-[#219EBC]" />
               <div class="flex justify-between text-sm font-medium text-gray-600 pt-2">
                 <span>$3,000</span>
                 <span>$200,000</span>
@@ -418,10 +425,11 @@
 
             <!-- Periodo de pago -->
             <div>
-              <h4 class="text-center text-lg font-semibold text-primary mb-2">¿En cuántas quincenas quieres pagar?
+              <h4 class="text-center text-lg font-semibold text-primary mb-2">
+                ¿En cuántas quincenas quieres pagar?
               </h4>
               <input type="range" value="24" min="12" max="60" step="12" name="period" id="period"
-                class="w-full accent-[#e28743]" />
+                class="w-full accent-[#219EBC]" />
               <div class="flex justify-between text-sm font-medium text-gray-600 pt-2">
                 <span>12</span><span>24</span><span>36</span><span>48</span><span>60</span>
               </div>
@@ -451,13 +459,13 @@
 
       <!--Secion2 DarkBlue-->
       <section
-        class="relative bg-gradient-to-b from-white to-blue-50 dark:from-gray-900 dark:to-slate-800 py-28 px-6 overflow-hidden">
+        class="relative bg-gradient-to-b from-white to-blue-50 dark:from-gray-900 dark:to-slate-800 py-14 px-6 overflow-hidden">
         <div class="max-w-7xl mx-auto">
           <div class="text-center mb-16" data-aos="fade-down">
             <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Da el siguiente paso</h2>
             <p class="text-lg text-white/90 max-w-2xl mx-auto">
-              Tu futuro financiero comienza con una decisión. Credipro te acompaña para convertir tus planes en logros
-              concretos.
+              Tu futuro financiero comienza con una decisión. Credipro te acompaña para convertir tus
+              planes en logros concretos.
             </p>
           </div>
 
@@ -469,9 +477,12 @@
                 class="absolute -top-6 left-6 bg-primary-light text-white w-12 h-12 flex items-center justify-center rounded-full text-xl shadow-md scale-[1.5]">
                 🎯
               </div>
-              <h3 class="text-2xl font-semibold text-primary mt-4 mb-8 block h-[3rem]">Convierte tus metas</h3>
+              <h3 class="text-2xl font-semibold text-primary mt-4 mb-8 block h-[3rem]">
+                Convierte tus metas
+              </h3>
               <p class="text-gray-600 mb-4 block h-[96px]">
-                No es solo un crédito. Es la herramienta que te ayudará a avanzar. Te guiamos en cada paso.
+                No es solo un crédito. Es la herramienta que te ayudará a avanzar. Te guiamos en
+                cada paso.
               </p>
               <a href="#calculator-form"
                 class="text-primary-light hover:text-orange-500 font-semibold transition-colors">Simula tu crédito →</a>
@@ -484,9 +495,12 @@
                 class="absolute -top-6 left-6 bg-primary-light text-white w-12 h-12 flex items-center justify-center rounded-full text-xl shadow-md scale-[1.5]">
                 🚀
               </div>
-              <h3 class="text-2xl font-semibold text-primary mt-4 mb-8 block h-[3rem]">Oportunidades a tu alcance</h3>
+              <h3 class="text-2xl font-semibold text-primary mt-4 mb-8 block h-[3rem]">
+                Oportunidades a tu alcance
+              </h3>
               <p class="text-gray-600 mb-4 block h-[96px]">
-                Con herramientas personalizadas y atención directa, tus objetivos están más cerca que nunca.
+                Con herramientas personalizadas y atención directa, tus objetivos están más cerca
+                que nunca.
               </p>
               <a href="#calculator-form"
                 class="text-primary-light hover:text-orange-500 font-semibold transition-colors">Conoce más →</a>
@@ -499,9 +513,12 @@
                 class="absolute -top-6 left-6 bg-primary-light text-white w-12 h-12 flex items-center justify-center rounded-full text-xl shadow-md scale-[1.5]">
                 🌟
               </div>
-              <h3 class="text-2xl font-semibold text-primary mt-4 mb-8 block h-[3rem]">Tu futuro comienza hoy</h3>
+              <h3 class="text-2xl font-semibold text-primary mt-4 mb-8 block h-[3rem]">
+                Tu futuro comienza hoy
+              </h3>
               <p class="text-gray-600 mb-4 block h-[96px]">
-                Nuestro apoyo está diseñado para impulsarte, desde la asesoría hasta la tranquilidad financiera.
+                Nuestro apoyo está diseñado para impulsarte, desde la asesoría hasta la tranquilidad
+                financiera.
               </p>
               <a href="#calculator-form"
                 class="text-primary-light hover:text-orange-500 font-semibold transition-colors">Empieza ahora →</a>
@@ -515,9 +532,11 @@
       </section>
 
       <!-- Testimonios Slider -->
-      <section class="relative bg-gradient-to-br from-[#EAF2F8] via-white to-[#F2F6FC] py-24 px-6 overflow-hidden">
+      <section class="relative bg-gradient-to-br from-[#EAF2F8] via-white to-[#F2F6FC] py-14 px-6 overflow-hidden">
         <div class="max-w-6xl mx-auto" data-aos="fade-up">
-          <h2 class="text-4xl md:text-5xl font-bold text-center text-primary mb-12">💬 Testimonios Reales</h2>
+          <h2 class="text-4xl md:text-5xl font-bold text-center text-primary mb-12">
+            💬 Testimonios Reales
+          </h2>
 
           <div class="relative overflow-hidden">
             <div class="flex space-x-6 animate-slide-x snap-x snap-mandatory px-4 pb-4 w-max">
@@ -527,9 +546,11 @@
                 <div
                   class="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden transform transition-transform duration-500 hover:scale-110">
                   <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Maria G"
-                    class="object-cover w-full h-full">
+                    class="object-cover w-full h-full" />
                 </div>
-                <p class="text-gray-700 italic mb-2">“Gracias a CrediPRO pude remodelar mi casa sin complicaciones.”</p>
+                <p class="text-gray-700 italic mb-2">
+                  “Gracias a CrediPRO pude remodelar mi casa sin complicaciones.”
+                </p>
                 <h4 class="text-primary font-semibold">María G.</h4>
               </div>
 
@@ -538,9 +559,11 @@
                 <div
                   class="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden transform transition-transform duration-500 hover:scale-110">
                   <img src="https://randomuser.me/api/portraits/men/35.jpg" alt="Luis R"
-                    class="object-cover w-full h-full">
+                    class="object-cover w-full h-full" />
                 </div>
-                <p class="text-gray-700 italic mb-2">“El crédito llegó en menos de 48 horas. Excelente atención.”</p>
+                <p class="text-gray-700 italic mb-2">
+                  “El crédito llegó en menos de 48 horas. Excelente atención.”
+                </p>
                 <h4 class="text-primary font-semibold">Luis R.</h4>
               </div>
 
@@ -549,9 +572,11 @@
                 <div
                   class="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden transform transition-transform duration-500 hover:scale-110">
                   <img src="https://randomuser.me/api/portraits/women/52.jpg" alt="Elena M"
-                    class="object-cover w-full h-full">
+                    class="object-cover w-full h-full" />
                 </div>
-                <p class="text-gray-700 italic mb-2">“Me explicaron todo con claridad. ¡Recomiendo CrediPRO!”</p>
+                <p class="text-gray-700 italic mb-2">
+                  “Me explicaron todo con claridad. ¡Recomiendo CrediPRO!”
+                </p>
                 <h4 class="text-primary font-semibold">Elena M.</h4>
               </div>
 
@@ -561,9 +586,11 @@
                 <div
                   class="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden transform transition-transform duration-500 hover:scale-110">
                   <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Maria G"
-                    class="object-cover w-full h-full">
+                    class="object-cover w-full h-full" />
                 </div>
-                <p class="text-gray-700 italic mb-2">“Gracias a CrediPRO pude remodelar mi casa sin complicaciones.”</p>
+                <p class="text-gray-700 italic mb-2">
+                  “Gracias a CrediPRO pude remodelar mi casa sin complicaciones.”
+                </p>
                 <h4 class="text-primary font-semibold">María G.</h4>
               </div>
             </div>
@@ -577,9 +604,7 @@
         <div
           class="absolute bottom-0 right-0 w-48 h-48 bg-[#007BFF]/10 rounded-full blur-2xl pointer-events-none animate-pulse">
         </div>
-
       </section>
-
 
       <!-- Section media
       <section class="relative bg-[#F2F4F8] py-24 px-6">
@@ -643,44 +668,41 @@
       </section> -->
 
       <!-- Blog Section -->
-      <section id="blog" class="relative bg-white py-24 px-6">
+      <section id="blog" class="relative bg-white py-14 px-6">
         <div class="max-w-7xl mx-auto" data-aos="fade-up" data-aos-delay="150">
           <!-- Encabezado -->
           <header class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-extrabold text-primary mb-4">📝 Ideas, Tips y Novedades</h2>
+            <h2 class="text-4xl md:text-5xl font-extrabold text-primary mb-4">
+              📝 Ideas, Tips y Novedades
+            </h2>
             <p class="text-lg md:text-xl text-primary max-w-3xl mx-auto">
-              Inspírate con los artículos de nuestro blog que te ayudan a tomar decisiones financieras más inteligentes
-              y dar el siguiente
-              paso con
-              confianza.
+              Inspírate con los artículos de nuestro blog que te ayudan a tomar decisiones financieras
+              más inteligentes y dar el siguiente paso con confianza.
             </p>
           </header>
 
           <!-- Grid con layout personalizado -->
-          <div class="grid gap-8 grid-cols-1 lg:grid-cols-3 grid-rows-2">
+          <div class="md:grid md:grid-cols-2 gap-4 gap-4 blog-container-hero flex flex-col">
             <!-- Artículo destacado -->
             <article
-              class="group bg-white overflow-hidden lg:col-span-2 row-span-2 transition-transform duration-300 hover:-translate-y-1  rounded-2xl shadow-2xl" data-aos="fade-right">
+              class="group bg-white overflow-hidden lg:col-span-2 row-span-2 transition-transform duration-300 hover:-translate-y-1 rounded-2xl shadow-2xl"
+              data-aos="fade-right">
               <img src="./src/assets/images/economic-one.jpg" alt="Artículo destacado"
                 class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105" />
               <div class="p-6">
-                <h3 class="text-3xl font-bold text-primary mb-4">¿Qué es un crédito de nómina?</h3>
-                <p class="text-gray-600 mb-4 text-lg">
-                  Explora a fondo cómo transformar tus finanzas, mejorar tu estabilidad económica y alcanzar tus metas
-                  con pasos
-                  seguros.
+                <h3 class="text-xl font-bold text-primary mb-4">¿Qué es un crédito de nómina?</h3>
+                <p class="text-gray-600 mb-4 text-primary">
+                  Explora a fondo cómo transformar tus finanzas, mejorar tu estabilidad económica
+                  y alcanzar tus metas con pasos seguros.
                 </p>
-                <p class="text-primary"><strong>¿Te has preguntado cómo podrías mejorar tu situación financiera sin complicaciones?</strong><br>
-                  La estabilidad económica no es un lujo, es una necesidad. Ya sea que quieras saldar deudas, comenzar
-                  un nuevo proyecto o simplemente tener un mayor control sobre tus finanzas, estás en el lugar indicado.
-                  Con las herramientas y el acompañamiento adecuado, transformar tu realidad está más cerca de lo que
-                  crees.<br>
-
-                  CrediPRO te da el impulso que necesitas.
-                  Te invitamos a descubrir cómo una buena estrategia financiera puede abrirte puertas, darte
-                  tranquilidad y acercarte a tus sueños. Sigue leyendo y conoce los pasos que te permitirán tomar el
-                  control, avanzar con seguridad y construir un futuro más sólido.
-
+                <p class="text-primary">
+                  <strong>¿Quieres mejorar tu situación financiera sin complicarte?</strong>
+                  <br />
+                  La estabilidad económica es una necesidad, y en CrediPRO estamos aquí para
+                  ayudarte a lograrla. Ya sea para saldar deudas, iniciar un proyecto o tener
+                  mayor control de tus finanzas, con el acompañamiento correcto puedes transformar
+                  tu realidad. Te invitamos a descubrir cómo una buena estrategia financiera puede
+                  darte tranquilidad, abrirte nuevas oportunidades y acercarte a tus metas.
                 </p>
                 <a href="/blog/index.html"
                   class="text-primary-light hover:text-orange-500 font-semibold hover:underline">Leer más →</a>
@@ -689,12 +711,17 @@
 
             <!-- Artículo secundario 1 -->
             <article
-              class="group bg-white overflow-hidden transition-transform duration-300 hover:-translate-y-1  rounded-2xl shadow-2xl" data-aos="fade-right">
+              class="group bg-white overflow-hidden transition-transform duration-300 hover:-translate-y-1 rounded-2xl shadow-2xl"
+              data-aos="fade-right">
               <img src="./src/assets/images/economic-one.jpg" alt="Artículo 2"
                 class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105" />
               <div class="p-6">
-                <h3 class="text-xl font-semibold text-primary mb-2">5 consejos para mejorar tu salud financiera</h3>
-                <p class="text-gray-600 mb-4">Descubre tips financieros útiles para aplicar en tu día a día.</p>
+                <h3 class="text-xl font-semibold text-primary mb-2">
+                  5 consejos para mejorar tu salud financiera
+                </h3>
+                <p class="text-gray-600 mb-4">
+                  Descubre tips financieros útiles para aplicar en tu día a día.
+                </p>
                 <a href="#" class="text-primary-light hover:text-orange-500 font-semibold hover:underline">Leer más
                   →</a>
               </div>
@@ -702,14 +729,16 @@
 
             <!-- Artículo secundario 2 -->
             <article
-              class="group bg-white overflow-hidden transition-transform duration-300 hover:-translate-y-1  rounded-2xl shadow-2xl" data-aos="fade-right">
+              class="group bg-white overflow-hidden transition-transform duration-300 hover:-translate-y-1 rounded-2xl shadow-2xl"
+              data-aos="fade-right">
               <img src="./src/assets/images/economic-one.jpg" alt="Artículo 3"
                 class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105" />
               <div class="p-6">
                 <h3 class="text-xl font-semibold text-[#003B73] mb-2">Historias de Éxito</h3>
-                <p class="text-gray-600 mb-4">Testimonios de personas que aprovecharon su crédito para transformar su
-                  vida.</p>
-                <a href="#" class="text-primary-light hover:text-orange-500  font-semibold hover:underline">Leer más
+                <p class="text-gray-600 mb-4">
+                  Testimonios de personas que aprovecharon su crédito para transformar su vida.
+                </p>
+                <a href="#" class="text-primary-light hover:text-orange-500 font-semibold hover:underline">Leer más
                   →</a>
               </div>
             </article>
@@ -729,12 +758,15 @@
       </section>
 
       <!-- FAQ Section -->
-      <section id="faq" class="relative bg-white py-20 px-6">
+      <section id="faq" class="relative bg-white py-14 px-6">
         <div class="max-w-5xl mx-auto" data-aos="fade-up">
-          <h2 class="text-4xl md:text-5xl font-bold text-primary text-center mb-12">Preguntas Frecuentes</h2>
-          <div class="space-y-6 divide-y divide-blue/20  rounded-2xl shadow-xl" data-aos="fade-right">
+          <h2 class="text-4xl md:text-5xl font-bold text-primary text-center mb-12">
+            Preguntas Frecuentes
+          </h2>
+          <div class="space-y-6 divide-y divide-blue/20" data-aos="fade-right">
             <details
-              class="group bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-500 transform hover:scale-[1.02]  rounded-2xl shadow-xl" data-aos="fade-right">
+              class="group bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-500 transform hover:scale-[1.02] rounded-2xl shadow-xl"
+              data-aos="fade-right">
               <summary class="flex justify-between items-center cursor-pointer text-lg font-semibold text-primary">
                 ¿Qué necesito para solicitar un crédito?
                 <svg class="w-5 h-5 transition-transform group-open:rotate-180 text-primary-light" fill="none"
@@ -743,11 +775,13 @@
                 </svg>
               </summary>
               <p class="text-primary mt-4">
-                Solo necesitas tu identificación oficial, comprobante de ingresos y llenar nuestro formulario en línea.
+                Solo necesitas tu identificación oficial, comprobante de ingresos y llenar nuestro
+                formulario en línea.
               </p>
             </details>
             <details
-              class="group bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-500 transform hover:scale-[1.02]  rounded-2xl shadow-xl" data-aos="fade-right">
+              class="group bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-500 transform hover:scale-[1.02] rounded-2xl shadow-xl"
+              data-aos="fade-right">
               <summary class="flex justify-between items-center cursor-pointer text-lg font-semibold text-primary">
                 ¿Cuánto tiempo tarda la aprobación?
                 <svg class="w-5 h-5 transition-transform group-open:rotate-180 text-primary-light" fill="none"
@@ -755,28 +789,30 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                 </svg>
               </summary>
-              <p class="text-gray-700 mt-4">Generalmente entre 24 y 72 horas hábiles dependiendo del perfil del
-                solicitante.</p>
+              <p class="text-gray-700 mt-4">
+                Generalmente entre 24 y 72 horas hábiles dependiendo del perfil del solicitante.
+              </p>
             </details>
             <details
               class="group bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-500 transform hover:scale-[1.02]">
-              <summary class="flex justify-between items-center cursor-pointer text-lg font-semibold text-primary  rounded-2xl shadow-xl" data-aos="fade-right">
+              <summary class="flex justify-between items-center cursor-pointer text-lg font-semibold text-primary"
+                data-aos="fade-right">
                 ¿Puedo pagar anticipadamente?
                 <svg class="w-5 h-5 transition-transform group-open:rotate-180 text-primary-light" fill="none"
                   stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                 </svg>
               </summary>
-              <p class="text-gray-700 mt-4">Sí, puedes liquidar tu crédito anticipadamente sin penalización.</p>
+              <p class="text-gray-700 mt-4">
+                Sí, puedes liquidar tu crédito anticipadamente sin penalización.
+              </p>
             </details>
           </div>
         </div>
       </section>
 
-
-      <!--Contacto-->
       <!-- Contacto Mejorado con fondo y estilo coherente -->
-      <section id="contacto" class="relative w-full bg-[#EAF2F8] py-24 px-6 overflow-hidden">
+      <section id="contacto" class="relative w-full bg-[#EAF2F8] pb-24 pt-40 px-6 overflow-hidden">
         <!-- Decoraciones suaves -->
         <div
           class="absolute top-10 left-10 w-24 h-24 bg-[#007BFF]/20 rounded-full blur-3xl animate-ping pointer-events-none">
@@ -793,13 +829,15 @@
             </h2>
             <form class="space-y-6">
               <div>
-                <label for="fullname" class="block text-sm font-semibold text-slate-700 mb-1">Nombre completo</label>
+                <label for="fullname" class="block text-sm font-semibold text-slate-700 mb-1">Nombre
+                  completo</label>
                 <input type="text" id="fullname" name="fullname" placeholder="Escribe tu nombre"
                   class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#007BFF] transition shadow-sm hover:shadow-md" />
               </div>
 
               <div>
-                <label for="email" class="block text-sm font-semibold text-slate-700 mb-1">Correo electrónico</label>
+                <label for="email" class="block text-sm font-semibold text-slate-700 mb-1">Correo
+                  electrónico</label>
                 <input type="email" id="email" name="email" placeholder="ejemplo@correo.com"
                   class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#007BFF] transition shadow-sm hover:shadow-md" />
               </div>
@@ -857,9 +895,8 @@
             <span class="text-3xl font-extrabold text-primary-light dark:text-primary-light">CrédiPRO</span>
           </div>
           <p class="mt-4 text-sm leading-relaxed">
-            Tu tranquilidad financiera está más cerca de lo que imaginas. Te acompañamos desde la asesoría inicial hasta
-            la
-            entrega de tu crédito.
+            Tu tranquilidad financiera está más cerca de lo que imaginas. Te acompañamos desde la
+            asesoría inicial hasta la entrega de tu crédito.
           </p>
           <div class="flex mt-6 space-x-4">
             <!-- Facebook -->
@@ -871,12 +908,20 @@
             </a>
             <!-- Instagram -->
             <a href="#" class="hover:scale-110 transition-transform" aria-label="Instagram">
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path
-                  d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.338 3.608 1.313.975.975 1.251 2.243 1.313 3.608.058 1.267.07 1.647.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.338 2.633-1.313 3.608-.975.975-2.243 1.251-3.608 1.313-1.267.058-1.647.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.338-3.608-1.313-.975-.975-1.251-2.243-1.313-3.608C2.175 15.647 2.163 15.267 2.163 12s.012-3.584.07-4.85c.062-1.366.338-2.633 1.313-3.608.975-.975 2.243-1.251 3.608-1.313C8.416 2.175 8.796 2.163 12 2.163zM12 0C8.741 0 8.332.014 7.052.072 5.775.13 4.602.387 3.635 1.355 2.667 2.322 2.41 3.495 2.352 4.773 2.294 6.054 2.28 6.463 2.28 12s.014 5.946.072 7.227c.058 1.278.315 2.451 1.283 3.418.967.967 2.14 1.225 3.418 1.283 1.281.058 1.69.072 7.227.072s5.946-.014 7.227-.072c1.278-.058 2.451-.315 3.418-1.283.967-.967 1.225-2.14 1.283-3.418.058-1.281.072-1.69.072-7.227s-.014-5.946-.072-7.227c-.058-1.278-.315-2.451-1.283-3.418C20.451.387 19.278.13 18 .072 16.719.014 16.31 0 12 0z" />
-                <path
-                  d="M12 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a3.999 3.999 0 110-7.998 3.999 3.999 0 010 7.998z" />
-                <circle cx="18.406" cy="5.595" r="1.44" />
+              <svg width="25px" height="25px" viewBox="0 0 20 20" version="1.1" fill="#e5e7eb">
+                <g stroke-width="0"></g>
+                <g stroke-linecap="round" stroke-linejoin="round"></g>
+                <g>
+                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g transform="translate(-340.000000, -7439.000000)" fill="#e5e7eb">
+                      <g id="icons" transform="translate(56.000000, 160.000000)">
+                        <path
+                          d="M289.869652,7279.12273 C288.241769,7279.19618 286.830805,7279.5942 285.691486,7280.72871 C284.548187,7281.86918 284.155147,7283.28558 284.081514,7284.89653 C284.035742,7285.90201 283.768077,7293.49818 284.544207,7295.49028 C285.067597,7296.83422 286.098457,7297.86749 287.454694,7298.39256 C288.087538,7298.63872 288.809936,7298.80547 289.869652,7298.85411 C298.730467,7299.25511 302.015089,7299.03674 303.400182,7295.49028 C303.645956,7294.859 303.815113,7294.1374 303.86188,7293.08031 C304.26686,7284.19677 303.796207,7282.27117 302.251908,7280.72871 C301.027016,7279.50685 299.5862,7278.67508 289.869652,7279.12273 M289.951245,7297.06748 C288.981083,7297.0238 288.454707,7296.86201 288.103459,7296.72603 C287.219865,7296.3826 286.556174,7295.72155 286.214876,7294.84312 C285.623823,7293.32944 285.819846,7286.14023 285.872583,7284.97693 C285.924325,7283.83745 286.155174,7282.79624 286.959165,7281.99226 C287.954203,7280.99968 289.239792,7280.51332 297.993144,7280.90837 C299.135448,7280.95998 300.179243,7281.19026 300.985224,7281.99226 C301.980262,7282.98483 302.473801,7284.28014 302.071806,7292.99991 C302.028024,7293.96767 301.865833,7294.49274 301.729513,7294.84312 C300.829003,7297.15085 298.757333,7297.47145 289.951245,7297.06748 M298.089663,7283.68956 C298.089663,7284.34665 298.623998,7284.88065 299.283709,7284.88065 C299.943419,7284.88065 300.47875,7284.34665 300.47875,7283.68956 C300.47875,7283.03248 299.943419,7282.49847 299.283709,7282.49847 C298.623998,7282.49847 298.089663,7283.03248 298.089663,7283.68956 M288.862673,7288.98792 C288.862673,7291.80286 291.150266,7294.08479 293.972194,7294.08479 C296.794123,7294.08479 299.081716,7291.80286 299.081716,7288.98792 C299.081716,7286.17298 296.794123,7283.89205 293.972194,7283.89205 C291.150266,7283.89205 288.862673,7286.17298 288.862673,7288.98792 M290.655732,7288.98792 C290.655732,7287.16159 292.140329,7285.67967 293.972194,7285.67967 C295.80406,7285.67967 297.288657,7287.16159 297.288657,7288.98792 C297.288657,7290.81525 295.80406,7292.29716 293.972194,7292.29716 C292.140329,7292.29716 290.655732,7290.81525 290.655732,7288.98792">
+                        </path>
+                      </g>
+                    </g>
+                  </g>
+                </g>
               </svg>
             </a>
             <!-- Twitter -->
@@ -894,17 +939,19 @@
           <div>
             <h3 class="text-lg font-semibold text-primary-light dark:text-primary-light">Créditos</h3>
             <ul class="mt-4 space-y-2 text-sm">
-              <li><a href="#" class="hover:text-blue-600">Créditos Financieros</a></li>
-              <li><a href="#" class="hover:text-blue-600">Asesoría</a></li>
-              <li><a href="#" class="hover:text-blue-600">Solicita tu Crédito</a></li>
+              <li>
+                <a href="#" onclick="return false;" class="hover:text-blue-600">Créditos Financieros</a>
+              </li>
+              <li><a href="./contacto" class="hover:text-blue-600">Asesoría</a></li>
+              <li><a href="./simulador" class="hover:text-blue-600">Solicita tu Crédito</a></li>
             </ul>
           </div>
           <div>
             <h3 class="text-lg font-semibold text-primary-light dark:text-primary-light">Nosotros</h3>
             <ul class="mt-4 space-y-2 text-sm">
-              <li><a href="#" class="hover:text-blue-600">¿Quiénes somos?</a></li>
-              <li><a href="#" class="hover:text-blue-600">Qué ofrecemos</a></li>
-              <li><a href="#" class="hover:text-blue-600">Blog</a></li>
+              <li><a href="./nosotros" class="hover:text-blue-600">¿Quiénes somos?</a></li>
+              <li><a href="./nosotros" class="hover:text-blue-600">¿Qué ofrecemos?</a></li>
+              <li><a href="./blog" class="hover:text-blue-600">Blog</a></li>
             </ul>
           </div>
         </div>
@@ -913,15 +960,17 @@
         <div>
           <h3 class="text-lg font-semibold text-primary-light dark:text-primary-light">Contáctanos</h3>
           <ul class="mt-4 space-y-2 text-sm">
-            <li><a href="#" class="hover:text-blue-600">Ayuda</a></li>
-            <li><a href="#" class="hover:text-blue-600">Política de privacidad</a></li>
-            <li><a href="#" class="hover:text-blue-600">Términos y condiciones</a></li>
+            <li><a href="./contacto" class="hover:text-blue-600">Ayuda</a></li>
+            <li>
+              <a href="#" onclick="return false;" class="hover:text-blue-600">Política de privacidad</a>
+            </li>
+            <li>
+              <a href="#" onclick="return false;" class="hover:text-blue-600">Términos y condiciones</a>
+            </li>
           </ul>
         </div>
       </div>
-      <div class="border-t border-slate-200 dark:border-slate-700 mt-12 text-center py-6 text-sm">
-        &copy; 2025 CrédiPRO. Todos los derechos reservados.
-      </div>
+      <div id="copyright" class="border-t border-slate-200 dark:border-slate-700 mt-12 text-center py-6 text-sm"></div>
     </footer>
   </div>
 </body>
