@@ -359,6 +359,11 @@ header.navigation-menu {
       }
     }
   }
+  .hero {
+    height: auto!important;
+    min-height: auto !important;
+    max-height: max-content !important;
+  }
 }
 
 /* Estilos para tablets verticales */
