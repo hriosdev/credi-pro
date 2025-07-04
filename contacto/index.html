@@ -101,165 +101,248 @@
   <body>
     <div id="content">
       <!-- Navigation menu  -->
-    <!-- Navigation menu  -->
-    <header x-data="{ open: false }" class="fixed top-0 left-0 w-full z-50 bg-white/70 backdrop-blur-md shadow-sm">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-16">
+      <!-- Navigation menu  -->
+      <header
+        x-data="{ open: false }"
+        class="fixed top-0 left-0 w-full z-50 bg-white/70 backdrop-blur-md shadow-sm"
+      >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between items-center h-16">
+            <!-- Logo -->
+            <a href="#" class="flex-shrink-0">
+              <img class="h-10" src="/src/assets/images/logoblue.png" alt="Logo" />
+            </a>
 
-          <!-- Logo -->
-          <a href="#" class="flex-shrink-0">
-            <img class="h-10" src="/src/assets/images/logoblue.png" alt="Logo" />
-          </a>
+            <!-- Botón hamburguesa -->
+            <div class="flex md:hidden">
+              <button
+                @click="open = !open"
+                type="button"
+                class="inline-flex items-center justify-center p-2 rounded-md text-slate-800 hover:bg-blue-100 focus:outline-none transition duration-300"
+                aria-controls="mobile-menu"
+                :aria-expanded="open"
+              >
+                <svg
+                  class="h-6 w-6"
+                  x-show="!open"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+                <svg
+                  class="h-6 w-6"
+                  x-show="open"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
 
-          <!-- Botón hamburguesa -->
-          <div class="flex md:hidden">
-            <button @click="open = !open" type="button"
-              class="inline-flex items-center justify-center p-2 rounded-md text-slate-800 hover:bg-blue-100 focus:outline-none transition duration-300"
-              aria-controls="mobile-menu" :aria-expanded="open">
-              <svg class="h-6 w-6" x-show="!open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-              <svg class="h-6 w-6" x-show="open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
+            <!-- Menú escritorio con efecto -->
+            <nav class="hidden md:flex space-x-6 items-center">
+              <a
+                href="../index.html"
+                class="relative group text-sm font-[montserrat-semibold] text-slate-800 hover:text-blue-700 transition"
+              >
+                Inicio
+                <span
+                  class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"
+                ></span>
+              </a>
+              <a
+                href="../nosotros"
+                class="relative group text-sm font-[montserrat-medium] text-slate-800 hover:text-blue-700 transition"
+              >
+                ¿Quiénes Somos?
+                <span
+                  class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"
+                ></span>
+              </a>
+              <a
+                href="../simulador"
+                class="relative group text-sm font-[montserrat-medium] text-slate-800 hover:text-blue-700 transition"
+              >
+                Solicita tu Crédito
+                <span
+                  class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"
+                ></span>
+              </a>
+              <a
+                href="../blog"
+                class="relative group text-sm font-[montserrat-medium] text-slate-800 hover:text-blue-700 transition"
+              >
+                Blog
+                <span
+                  class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"
+                ></span>
+              </a>
+              <a
+                href="#"
+                onclick="return false;"
+                class="relative group text-sm font-[montserrat-medium] text-slate-800 hover:text-blue-700 transition hover:cursor-pointer"
+              >
+                Contacto
+                <span
+                  class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"
+                ></span>
+              </a>
+            </nav>
           </div>
-
-          <!-- Menú escritorio con efecto -->
-          <nav class="hidden md:flex space-x-6 items-center">
-            <a href="/index.html"
-              class="relative group text-sm font-[montserrat-semibold] text-slate-800 hover:text-blue-700 transition">
-              Inicio
-              <span
-                class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-            </a>
-            <a href="/nosotros"
-              class="relative group text-sm font-[montserrat-medium] text-slate-800 hover:text-blue-700 transition">
-              ¿Quiénes Somos?
-              <span
-                class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-            </a>
-            <a href="/simulador"
-              class="relative group text-sm font-[montserrat-medium] text-slate-800 hover:text-blue-700 transition">
-              Solicita tu Crédito
-              <span
-                class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-            </a>
-            <a href="/blog"
-              class="relative group text-sm font-[montserrat-medium] text-slate-800 hover:text-blue-700 transition">
-              Blog
-              <span
-                class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-            </a>
-            <a href="/contacto"
-              class="relative group text-sm font-[montserrat-medium] text-slate-800 hover:text-blue-700 transition">
-              Contacto
-              <span
-                class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-            </a>
-          </nav>
         </div>
-      </div>
 
-      <!-- Menú móvil (slide down con mismo estilo visual) -->
-      <div x-show="open" x-transition:enter="transition ease-out duration-300"
-        x-transition:enter-start="transform opacity-0 -translate-y-4"
-        x-transition:enter-end="transform opacity-100 translate-y-0"
-        x-transition:leave="transition ease-in duration-200"
-        x-transition:leave-start="transform opacity-100 translate-y-0"
-        x-transition:leave-end="transform opacity-0 -translate-y-4"
-        class="md:hidden bg-white/95 backdrop-blur-md shadow-md px-4 pt-4 pb-6 space-y-3">
-
-        <!-- Mismo estilo de efecto en móvil -->
-        <a href="#" class="relative group block text-sm font-medium text-slate-800 hover:text-blue-700 transition">
-          Inicio
-          <span
-            class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-        </a>
-        <a href="./nosotros"
-          class="relative group block text-sm font-medium text-slate-800 hover:text-blue-700 transition">
-          ¿Quiénes Somos?
-          <span
-            class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-        </a>
-        <a href="./simulador"
-          class="relative group block text-sm font-medium text-slate-800 hover:text-blue-700 transition">
-          Solicita tu Crédito
-          <span
-            class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-        </a>
-        <a href="./blog" class="relative group block text-sm font-medium text-slate-800 hover:text-blue-700 transition">
-          Blog
-          <span
-            class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-        </a>
-        <a href="./contacto"
-          class="relative group block text-sm font-medium text-slate-800 hover:text-blue-700 transition">
-          Contacto
-          <span
-            class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-        </a>
-      </div>
-    </header>
+        <!-- Menú móvil (slide down con mismo estilo visual) -->
+        <div
+          x-show="open"
+          x-transition:enter="transition ease-out duration-300"
+          x-transition:enter-start="transform opacity-0 -translate-y-4"
+          x-transition:enter-end="transform opacity-100 translate-y-0"
+          x-transition:leave="transition ease-in duration-200"
+          x-transition:leave-start="transform opacity-100 translate-y-0"
+          x-transition:leave-end="transform opacity-0 -translate-y-4"
+          class="md:hidden bg-white/95 backdrop-blur-md shadow-md px-4 pt-4 pb-6 space-y-3"
+        >
+          <!-- Mismo estilo de efecto en móvil -->
+          <a
+            href="#"
+            class="relative group block text-sm font-medium text-slate-800 hover:text-blue-700 transition"
+          >
+            Inicio
+            <span
+              class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"
+            ></span>
+          </a>
+          <a
+            href="./nosotros"
+            class="relative group block text-sm font-medium text-slate-800 hover:text-blue-700 transition"
+          >
+            ¿Quiénes Somos?
+            <span
+              class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"
+            ></span>
+          </a>
+          <a
+            href="./simulador"
+            class="relative group block text-sm font-medium text-slate-800 hover:text-blue-700 transition"
+          >
+            Solicita tu Crédito
+            <span
+              class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"
+            ></span>
+          </a>
+          <a
+            href="./blog"
+            class="relative group block text-sm font-medium text-slate-800 hover:text-blue-700 transition"
+          >
+            Blog
+            <span
+              class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"
+            ></span>
+          </a>
+          <a
+            href="./contacto"
+            class="relative group block text-sm font-medium text-slate-800 hover:text-blue-700 transition"
+          >
+            Contacto
+            <span
+              class="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"
+            ></span>
+          </a>
+        </div>
+      </header>
 
       <main>
-
-
         <!--Contacto-->
-        
-      <!-- Contacto Mejorado con fondo y estilo coherente -->
-      <section id="contacto" class="relative w-full bg-[#EAF2F8] py-24 px-6 overflow-hidden">
-        <!-- Decoraciones suaves -->
-        <div
-          class="absolute top-10 left-10 w-24 h-24 bg-[#007BFF]/20 rounded-full blur-3xl animate-ping pointer-events-none">
-        </div>
-        <div
-          class="absolute bottom-10 right-10 w-32 h-32 bg-[#00B7C2]/20 rounded-full blur-2xl animate-pulse pointer-events-none">
-        </div>
 
-        <div class="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-12 relative z-10">
-          <!-- Formulario -->
-          <div class="w-full lg:w-1/2 bg-white p-10 rounded-2xl shadow-xl" data-aos="fade-right">
-            <h2 class="text-4xl md:text-5xl font-bold text-[#003B73] mb-8 text-center">
-              📬 Contáctanos
-            </h2>
-            <form class="space-y-6">
-              <div>
-                <label for="fullname" class="block text-sm font-semibold text-slate-700 mb-1">Nombre completo</label>
-                <input type="text" id="fullname" name="fullname" placeholder="Escribe tu nombre"
-                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#007BFF] transition shadow-sm hover:shadow-md" />
-              </div>
+        <!-- Contacto Mejorado con fondo y estilo coherente -->
+        <section id="contacto" class="relative w-full bg-[#EAF2F8] py-24 px-6 overflow-hidden">
+          <!-- Decoraciones suaves -->
+          <div
+            class="absolute top-10 left-10 w-24 h-24 bg-[#007BFF]/20 rounded-full blur-3xl animate-ping pointer-events-none"
+          ></div>
+          <div
+            class="absolute bottom-10 right-10 w-32 h-32 bg-[#00B7C2]/20 rounded-full blur-2xl animate-pulse pointer-events-none"
+          ></div>
 
-              <div>
-                <label for="email" class="block text-sm font-semibold text-slate-700 mb-1">Correo electrónico</label>
-                <input type="email" id="email" name="email" placeholder="ejemplo@correo.com"
-                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#007BFF] transition shadow-sm hover:shadow-md" />
-              </div>
+          <div class="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-12 relative z-10">
+            <!-- Formulario -->
+            <div class="w-full lg:w-1/2 bg-white p-10 rounded-2xl shadow-xl" data-aos="fade-right">
+              <h2 class="text-4xl md:text-5xl font-bold text-[#003B73] mb-8 text-center">📬 Contáctanos</h2>
+              <form class="space-y-6">
+                <div>
+                  <label for="fullname" class="block text-sm font-semibold text-slate-700 mb-1"
+                    >Nombre completo</label
+                  >
+                  <input
+                    type="text"
+                    id="fullname"
+                    name="fullname"
+                    placeholder="Escribe tu nombre"
+                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#007BFF] transition shadow-sm hover:shadow-md"
+                  />
+                </div>
 
-              <div>
-                <label for="message" class="block text-sm font-semibold text-slate-700 mb-1">Mensaje</label>
-                <textarea id="message" name="message" rows="5" placeholder="¿En qué podemos ayudarte?"
-                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#007BFF] transition shadow-sm hover:shadow-md"></textarea>
-              </div>
+                <div>
+                  <label for="email" class="block text-sm font-semibold text-slate-700 mb-1"
+                    >Correo electrónico</label
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="ejemplo@correo.com"
+                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#007BFF] transition shadow-sm hover:shadow-md"
+                  />
+                </div>
 
-              <div class="text-center">
-                <button type="submit"
-                  class="inline-block bg-[#007BFF] hover:bg-[#005bb5] text-white font-semibold px-8 py-3 rounded-lg shadow-md transition-transform duration-300 hover:scale-105">
-                  Enviar mensaje
-                </button>
-              </div>
-            </form>
+                <div>
+                  <label for="message" class="block text-sm font-semibold text-slate-700 mb-1">Mensaje</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    placeholder="¿En qué podemos ayudarte?"
+                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#007BFF] transition shadow-sm hover:shadow-md"
+                  ></textarea>
+                </div>
+
+                <div class="text-center">
+                  <button
+                    type="submit"
+                    class="inline-block bg-[#007BFF] hover:bg-[#005bb5] text-white font-semibold px-8 py-3 rounded-lg shadow-md transition-transform duration-300 hover:scale-105"
+                  >
+                    Enviar mensaje
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Imagen -->
+            <div class="w-full lg:w-1/2 flex justify-center" data-aos="fade-left">
+              <img
+                src="https://img.freepik.com/free-psd/portrait-middle-aged-woman_23-2151825943.jpg"
+                alt="Contacto"
+                class="w-[420px] max-w-full rounded-2xl object-cover shadow-2xl hover:scale-105 transition-transform duration-500"
+              />
+            </div>
           </div>
-
-          <!-- Imagen -->
-          <div class="w-full lg:w-1/2 flex justify-center" data-aos="fade-left">
-            <img src="https://img.freepik.com/free-psd/portrait-middle-aged-woman_23-2151825943.jpg" alt="Contacto"
-              class="w-[420px] max-w-full rounded-2xl object-cover shadow-2xl hover:scale-105 transition-transform duration-500" />
-          </div>
-        </div>
-      </section>
+        </section>
 
         <!--Google Map-->
         <section class="relative w-full border-t border-gray-200 overflow-hidden group" id="google-maps">
@@ -298,8 +381,8 @@
               <span class="text-3xl font-extrabold text-blue-700 dark:text-blue-300">CrédiPRO</span>
             </div>
             <p class="mt-4 text-sm leading-relaxed">
-              Tu tranquilidad financiera está más cerca de lo que imaginas. Te acompañamos desde la asesoría inicial hasta la
-              entrega de tu crédito.
+              Tu tranquilidad financiera está más cerca de lo que imaginas. Te acompañamos desde la asesoría
+              inicial hasta la entrega de tu crédito.
             </p>
             <div class="flex mt-6 space-x-4">
               <!-- Facebook -->
@@ -338,17 +421,23 @@
             <div>
               <h3 class="text-lg font-semibold text-blue-700 dark:text-blue-300">Créditos</h3>
               <ul class="mt-4 space-y-2 text-sm">
-                <li><a href="#" class="hover:text-blue-600">Créditos Financieros</a></li>
-                <li><a href="#" class="hover:text-blue-600">Asesoría</a></li>
-                <li><a href="#" class="hover:text-blue-600">Solicita tu Crédito</a></li>
+                <li>
+                  <a href="#" onclick="return false;" class="hover:text-blue-600">Créditos Financieros</a>
+                </li>
+                <li><a href="#" onclick="return false;" class="hover:text-blue-600">Asesoría</a></li>
+                <li><a href="../simulador" class="hover:text-blue-600">Solicita tu Crédito</a></li>
               </ul>
             </div>
             <div>
               <h3 class="text-lg font-semibold text-blue-700 dark:text-blue-300">Nosotros</h3>
               <ul class="mt-4 space-y-2 text-sm">
-                <li><a href="#" class="hover:text-blue-600">¿Quiénes somos?</a></li>
-                <li><a href="#" class="hover:text-blue-600">Qué ofrecemos</a></li>
-                <li><a href="#" class="hover:text-blue-600">Blog</a></li>
+                <li>
+                  <a href="../nosotros" class="hover:text-blue-600">¿Quiénes somos?</a>
+                </li>
+                <li>
+                  <a href="../nosotros" class="hover:text-blue-600">¿Qué ofrecemos?</a>
+                </li>
+                <li><a href="../blog" class="hover:text-blue-600">Blog</a></li>
               </ul>
             </div>
           </div>
@@ -357,9 +446,13 @@
           <div>
             <h3 class="text-lg font-semibold text-blue-700 dark:text-blue-300">Contáctanos</h3>
             <ul class="mt-4 space-y-2 text-sm">
-              <li><a href="#" class="hover:text-blue-600">Ayuda</a></li>
-              <li><a href="#" class="hover:text-blue-600">Política de privacidad</a></li>
-              <li><a href="#" class="hover:text-blue-600">Términos y condiciones</a></li>
+              <li><a href="#" onclick="return false;" class="hover:text-blue-600">Ayuda</a></li>
+              <li>
+                <a href="#" onclick="return false;" class="hover:text-blue-600">Política de privacidad</a>
+              </li>
+              <li>
+                <a href="#" onclick="return false;" class="hover:text-blue-600">Términos y condiciones</a>
+              </li>
             </ul>
           </div>
         </div>
