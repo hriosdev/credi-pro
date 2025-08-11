@@ -245,31 +245,31 @@
                       interval: null,
                       slides: [
                       {
+                        image: './src/assets/images/1.png',
+                        title: 'Tu crédito de nómina, sin complicaciones',
+                        text: 'Te ayudamos a conseguirlo fácil, rápido y sin letra chiquita. Desde la solicitud hasta el depósito, aquí estamos contigo.'
+                      },
+                      {
                         image: './src/assets/images/credi4.jpg',
                         title: 'Tu crédito de nómina, sin complicaciones',
                         text: 'Te ayudamos a conseguirlo fácil, rápido y sin letra chiquita. Desde la solicitud hasta el depósito, aquí estamos contigo.'
                       },
                       {
-                        image: './src/assets/images/credi2.jpg',
-                        title: 'Respaldo Financiero a tu Medida',
-                        text: 'Te asesoramos desde el inicio hasta la entrega del crédito. Seguro, ágil y personalizado.'
-                      },
-                      {
-                        image: './src/assets/images/credi.jpg',
-                        title: 'Impulsa tus Metas Hoy',
-                        text: 'Tu tranquilidad financiera está más cerca de lo que imaginas. Credipro está contigo.'
+                        image: './src/assets/images/credi4.jpg',
+                        title: 'Tu crédito de nómina, sin complicaciones',
+                        text: 'Te ayudamos a conseguirlo fácil, rápido y sin letra chiquita. Desde la solicitud hasta el depósito, aquí estamos contigo.'
                       }
                       ],
                       next() { this.current = (this.current + 1) % this.slides.length },
                       prev() { this.current = (this.current - 1 + this.slides.length) % this.slides.length },
                       goTo(index) { this.current = index },
                       start() {
-                      this.interval = setInterval(() => this.next(), 6000);
+                     
                       },
                       stop() {
                       clearInterval(this.interval);
                       }
-                    }" x-init="start" @mouseenter="stop" @mouseleave="start"
+                     }"  x-init="start" @mouseenter="stop" @mouseleave="start"  
         class="relative h-screen w-full overflow-hidden">
         <!-- Slides -->
         <template x-for="(slide, index) in slides" :key="index">
@@ -292,13 +292,22 @@
           </div>
         </template>
 
-        <!-- Controles -->
+        <!-- Controles  
+         slide 
+         start() {
+                      this.interval = setInterval(() => this.next(), 6000);
+                      },
+                      stop() {
+                      clearInterval(this.interval);
+                      }
+                     }"  x-init="start" @mouseenter="stop" @mouseleave="start"  
+
         <button @click="prev"
           class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full z-20">&#8592;</button>
         <button @click="next"
-          class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full z-20">&#8594;</button>
+          class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full z-20">&#8594;</button>  -->
 
-        <!-- Indicadores -->
+        <!-- Indicadores 
         <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20 flex space-x-2">
           <template x-for="(slide, index) in slides" :key="index">
             <button @click="goTo(index)" :class="{
@@ -307,7 +316,7 @@
                                   'opacity-100 scale-110': current === index
                                 }" class="transition-transform duration-300 ease-in-out"></button>
           </template>
-        </div>
+        </div>   -->
       </section>
 
       <!--Entrada-->
@@ -345,10 +354,15 @@
           <div class="lg:w-1/2 text-center lg:text-left">
             <h2 class="text-4xl md:text-5xl font-bold text-primary mb-6 leading-tight">¿Quiénes somos?</h2>
             <p class="text-lg text-slate-700 mb-6">
-              En <span class="font-bold text-primary-light">CrediPRO</span> creemos que un crédito no debería ser motivo de estrés. Por eso formamos un equipo 
-              <strong>comprometido, profesional y humano,</strong> que te acompaña desde la solicitud hasta que el dinero llega a tus manos.
- <br /><br />
-              Desde que nos contactas hasta que recibes tu depósito, estamos contigo para que todo sea claro, rápido y sin estrés.
+              En <span class="font-bold text-primary-light">CrediPRO</span> creemos que un crédito no debería ser motivo
+              de estrés. Por eso formamos un equipo
+              <strong>comprometido, profesional y humano,</strong> que te acompaña desde la solicitud hasta que el
+              dinero llega a tus manos.
+              <br /><br />
+              No somos una financiera. Somos intermediarios que hablan claro, te explican paso a paso y hacen el trámite
+              contigo, no por encima de ti.
+              Tu tranquilidad es nuestra prioridad.
+
 
             </p>
             <a href="#simulador"
@@ -647,7 +661,7 @@
             <article
               class="group bg-white overflow-hidden lg:col-span-2 row-span-2 transition-transform duration-300 hover:-translate-y-1 rounded-2xl shadow-2xl"
               data-aos="fade-right">
-              <img src="./src/assets/images/economic-one.jpg" alt="Artículo destacado"
+              <img src="./src/assets/images/credi3.jpg" alt="Artículo destacado"
                 class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105" />
               <div class="p-6">
                 <h3 class="text-xl font-bold text-primary mb-4">¿Qué es un crédito de nómina?</h3>
@@ -674,7 +688,7 @@
             <article
               class="group bg-white overflow-hidden transition-transform duration-300 hover:-translate-y-1 rounded-2xl shadow-2xl"
               data-aos="fade-right">
-              <img src="./src/assets/images/economic-one.jpg" alt="Artículo 2"
+              <img src="./src/assets/images/2.png" alt="Artículo 2"
                 class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105" />
               <div class="p-6">
                 <h3 class="text-xl font-semibold text-primary mb-2">5 consejos para mejorar tu salud financiera</h3>
@@ -688,7 +702,7 @@
             <article
               class="group bg-white overflow-hidden transition-transform duration-300 hover:-translate-y-1 rounded-2xl shadow-2xl"
               data-aos="fade-right">
-              <img src="./src/assets/images/economic-one.jpg" alt="Artículo 3"
+              <img src="./src/assets/images/3.png" alt="Artículo 3"
                 class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105" />
               <div class="p-6">
                 <h3 class="text-xl font-semibold text-[#003B73] mb-2">Historias de Éxito</h3>
