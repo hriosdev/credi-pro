@@ -326,6 +326,20 @@ header.navigation-menu {
             }
         }
     }
+
+    .max-w-360px {
+        width: 100%;
+        max-width: calc(100vw - 2rem);
+        overflow: hidden;
+        border-radius: 1rem;
+
+        & img {
+            object-fit: contain;
+            aspect-ratio: unset;
+            min-height: 360px;
+            height: auto;
+        }
+    }
 }
 
 /* Estilos para móviles medianos */
