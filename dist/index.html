@@ -269,7 +269,7 @@
                       stop() {
                       clearInterval(this.interval);
                       }
-                     }"  x-init="start" @mouseenter="stop" @mouseleave="start"  
+                     }" x-init="start" @mouseenter="stop" @mouseleave="start"
         class="relative h-screen w-full overflow-hidden">
         <!-- Slides -->
         <template x-for="(slide, index) in slides" :key="index">
@@ -281,7 +281,7 @@
               <div class="text-white max-w-2xl mx-auto">
                 <h1 class="text-4xl md:text-5xl font-extrabold mb-4" x-text="slide.title"></h1>
                 <p class="text-lg md:text-xl mb-6" x-text="slide.text"></p>
-                <a href="./simulador"
+                <a href="https://wa.me/525568701352" target="_blank"
                   class="relative inline-block text-white font-medium bg-primary-light hover:bg-alerts px-6 py-3 rounded-lg transition duration-300 overflow-hidden">
                   <span class="relative z-10">Solicita tu crédito</span>
                   <span
@@ -442,10 +442,12 @@
 
             <!-- Botón -->
             <div class="text-center">
-              <button type="submit"
-                class="bg-black hover:bg-primary text-white px-6 py-2 rounded-lg font-semibold text-lg shadow-md transition">
-                Solicitar crédito
-              </button>
+              <a href="https://wa.me/525568701352" target="_blank"
+                class="relative inline-block text-white font-medium bg-primary-light hover:bg-alerts px-6 py-3 rounded-lg transition duration-300 overflow-hidden">
+                <span class="relative z-10">Solicita tu crédito</span>
+                <span
+                  class="absolute bottom-0 left-0 w-0 h-[2px] bg-white transition-all duration-300 ease-in-out group-hover:w-full"></span>
+              </a>
             </div>
           </form>
         </div>
@@ -934,7 +936,7 @@
   </div>
 
   <!-- Botón flotante de WhatsApp -->
-  <a href="https://wa.me/526643425615" target="_blank"
+  <a href="https://wa.me/525568701352" target="_blank"
     class="fixed bottom-6 right-6 z-50 flex items-center justify-center w-16 h-16 bg-green-500 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300"
     aria-label="WhatsApp" title="¡Envíanos un WhatsApp!">
     <span class="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-60 animate-ping"></span>
