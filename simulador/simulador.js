@@ -9,7 +9,7 @@ const calculateCreditAmount = () => {
   try {
     const amount = parseFloat(amountInputElement.value.replace(/,/g, ""));
     const time = parseInt(periodInputElement.value);
-    const rate = 0.05;
+    const rate = 0.03;
 
     if (isNaN(amount) || isNaN(time)) throw new Error("Por favor, ingresa valores válidos.");
 
